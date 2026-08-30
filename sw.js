@@ -1,11 +1,13 @@
 // AutoSerwis PWA Service Worker
-const CACHE_NAME = 'autoserwis-v1';
+const CACHE_NAME = 'autoserwis-v2';
+// Dynamiczne wykrywanie base path (dla GitHub Pages i innych hostingów z podfolderem)
+const BASE_PATH = self.location.pathname.replace(/sw\.js$/, '');
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.json',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png'
+  BASE_PATH,
+  BASE_PATH + 'index.html',
+  BASE_PATH + 'manifest.json',
+  BASE_PATH + 'icons/icon-192.png',
+  BASE_PATH + 'icons/icon-512.png'
 ];
 
 // Instalacja - cache'owanie zasobów
@@ -87,7 +89,7 @@ self.addEventListener('fetch', (event) => {
       .catch(() => {
         // Fallback dla strony głównej
         if (event.request.destination === 'document') {
-          return caches.match('/index.html');
+          return caches.match(BASE_PATH + 'index.html');
         }
       })
   );
