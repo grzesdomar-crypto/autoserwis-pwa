@@ -19,34 +19,32 @@ body{background:#0a0a0e;color:#e5e7eb;font-family:'DM Mono','Courier New',monosp
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:#222;border-radius:2px}
 button{font-family:inherit;cursor:pointer;transition:opacity .15s}
 button:active{opacity:.65}
-input{font-family:inherit;outline:none}
-input:focus{border-color:#f59e0b!important;box-shadow:0 0 0 2px rgba(245,158,11,.15)}
+input,select{font-family:inherit;outline:none}
+input:focus,select:focus{border-color:#f59e0b!important;box-shadow:0 0 0 2px rgba(245,158,11,.15)}
+select{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7px 10px;color:#e5e7eb;font-size:13px}
 .card{background:#0d0d14;border:1px solid #1a1a22;border-radius:10px;overflow:hidden}
 .fade{animation:fadeIn .2s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.2}}
-/* TOPBAR */
 #topbar{position:sticky;top:0;z-index:50;background:#0d0d14;border-bottom:1px solid #14141e;padding:0 14px;display:flex;align-items:center;height:52px;gap:12px}
 .logo{display:flex;align-items:center;gap:7px;color:#f59e0b;font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:900;letter-spacing:1.5px}
-.logo span{color:#e5e7eb}
-.logo svg{flex-shrink:0}
-/* BUTTONS */
+.logo span{color:#e5e7eb}.logo svg{flex-shrink:0}
 .btn{border:none;border-radius:7px;padding:7px 13px;font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:5px;letter-spacing:.3px;white-space:nowrap}
 .btn-amber{background:rgba(245,158,11,.12);color:#f59e0b;border:1px solid #78350f}
 .btn-green{background:#16a34a;color:#fff}
 .btn-blue{background:rgba(96,165,250,.1);color:#60a5fa;border:1px solid #1e3a5f}
 .btn-ghost{background:transparent;color:#9ca3af;border:1px solid #27272d}
 .btn-danger{background:rgba(239,68,68,.1);color:#ef4444;border:1px solid #7f1d1d}
-.btn-purple{background:rgba(167,139,250,.1);color:#a78bfa;border:1px solid #3b2a5e}
 .btn-sm{padding:5px 9px;font-size:11px}
-/* TABS */
 #tabs{display:flex;gap:6px;flex-wrap:wrap;padding:14px 14px 10px;align-items:center}
 .tab{padding:6px 12px;border-radius:8px;background:transparent;border:1px solid #1e1e26;color:#4b5563;font-size:12px;display:inline-flex;align-items:center;gap:6px;transition:all .13s}
 .tab.active{background:rgba(245,158,11,.1);border-color:#f59e0b;color:#f59e0b;font-weight:600}
 .badge{font-size:10px;border-radius:9px;padding:1px 5px;font-weight:700}
-.badge-red{background:#dc2626;color:#fff}
-.badge-amber{background:#d97706;color:#000}
-/* CAR HEADER */
+.badge-red{background:#dc2626;color:#fff}.badge-amber{background:#d97706;color:#000}
+.view-toggle{display:flex;gap:0;margin:0 14px 10px;background:#0d0d14;border:1px solid #1a1a22;border-radius:8px;overflow:hidden}
+.view-toggle button{flex:1;padding:10px 16px;border:none;background:transparent;color:#4b5563;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:6px;transition:all .15s}
+.view-toggle button.active{background:rgba(245,158,11,.1);color:#f59e0b}
+.view-toggle button:not(:last-child){border-right:1px solid #1a1a22}
 #car-header{margin:0 14px 10px;padding:13px 16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .car-name{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;letter-spacing:.5px}
 .plate{background:#111118;border:1px solid #1e1e26;border-radius:4px;padding:2px 9px;font-size:12px;color:#6b7280;letter-spacing:2px}
@@ -58,21 +56,16 @@ input:focus{border-color:#f59e0b!important;box-shadow:0 0 0 2px rgba(245,158,11,
 .status-pill{border-radius:7px;padding:5px 10px;text-align:center;min-width:50px}
 .pill-num{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:900;line-height:1}
 .pill-lbl{font-size:8px;letter-spacing:.3px;margin-top:1px}
-/* ITEMS */
 #items-list{padding:0 14px;display:flex;flex-direction:column;gap:5px}
 .item-card{border-radius:10px;overflow:hidden;transition:border-color .2s}
 .item-row{padding:10px 13px;display:flex;align-items:center;gap:9px;cursor:pointer;user-select:none}
 .item-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .item-name{font-size:13px;font-weight:500;color:#e5e7eb}
 .item-sub{font-size:10px;color:#374151;margin-top:1px}
-.col-last{text-align:center;min-width:84px}
-.col-next{text-align:center;min-width:96px}
-.col-left{text-align:right;min-width:74px}
+.col-last{text-align:center;min-width:84px}.col-next{text-align:center;min-width:96px}.col-left{text-align:right;min-width:74px}
 .col-lbl{font-size:9px;color:#27272d;letter-spacing:.5px;margin-bottom:2px}
-/* EXPANDED */
 .item-expand{border-top-width:1px;border-top-style:solid;padding:13px 14px;background:rgba(0,0,0,.38)}
 .toolbar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
-/* TIMELINE */
 .tl-entry{position:relative;padding-left:22px;padding-bottom:12px}
 .tl-line{position:absolute;left:7px;top:11px;bottom:0;width:1px;background:#1e1e26}
 .tl-dot{position:absolute;left:3px;top:7px;width:9px;height:9px;border-radius:50%}
@@ -83,20 +76,17 @@ input:focus{border-color:#f59e0b!important;box-shadow:0 0 0 2px rgba(245,158,11,
 .tl-latest-tag{font-size:9px;background:#1f1400;border:1px solid #78350f;color:#f59e0b;border-radius:4px;padding:1px 7px;letter-spacing:.5px}
 .tl-btns{display:flex;gap:3px;margin-left:auto}
 .tl-btn{background:none;border:none;color:#374151;padding:3px 4px;border-radius:4px;display:flex}
-/* FORMS */
 .form-row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
 .fld{display:flex;flex-direction:column;gap:4px}
 .fld label{font-size:10px;color:#4b5563;letter-spacing:.6px;font-weight:500}
-.fld input{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7px 10px;color:#e5e7eb;font-size:13px}
+.fld input,.fld select{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7px 10px;color:#e5e7eb;font-size:13px}
 .form-btns{display:flex;gap:6px;margin-top:14px}
 .section-divider{font-size:10px;color:#374151;letter-spacing:.5px;margin-bottom:9px;display:flex;align-items:center;gap:6px}
-/* MODALS */
 .overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.78);display:flex;align-items:center;justify-content:center;padding:20px}
 .modal{background:#0d0d14;border:1px solid #27272d;border-radius:14px;padding:22px;max-width:400px;width:100%;box-shadow:0 16px 48px rgba(0,0,0,.8)}
 .modal-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;margin-bottom:8px}
 .modal-sub{font-size:12px;color:#6b7280;line-height:1.6;margin-bottom:16px}
 .import-opt{border-radius:8px;padding:11px 14px;cursor:pointer;text-align:left;border:none;font-family:inherit;color:#e5e7eb;width:100%;margin-bottom:8px;transition:background .12s}
-/* DATA MENU DROPDOWN */
 #data-menu-wrap{position:relative}
 #data-menu{position:absolute;top:calc(100% + 6px);right:0;background:#0d0d14;border:1px solid #27272d;border-radius:10px;overflow:hidden;min-width:230px;box-shadow:0 8px 32px rgba(0,0,0,.7);z-index:100;display:none}
 #data-menu.open{display:block}
@@ -106,985 +96,177 @@ input:focus{border-color:#f59e0b!important;box-shadow:0 0 0 2px rgba(245,158,11,
 .dm-item:hover{background:rgba(255,255,255,.04)}
 .dm-item-name{font-size:13px;color:#e5e7eb;font-weight:500}
 .dm-item-sub{font-size:10px;color:#4b5563;margin-top:1px}
-/* ADD CAR / ITEM FORMS */
 .panel-form{background:#0d0d14;border:1px solid #27272d;border-radius:10px;padding:13px 14px;margin:0 14px 10px}
 .panel-form-title{font-size:10px;color:#374151;letter-spacing:.5px;margin-bottom:10px}
-/* LEGEND */
+.fuel-stats{display:grid;grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:8px;margin:0 14px 12px}
+.fuel-stat{background:#0d0d14;border:1px solid #1a1a22;border-radius:10px;padding:12px 14px}
+.fuel-stat-value{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:#e5e7eb}
+.fuel-stat-label{font-size:10px;color:#374151;letter-spacing:.5px;margin-top:2px}
+.fuel-stat.green .fuel-stat-value{color:#22c55e}
+.fuel-stat.amber .fuel-stat-value{color:#f59e0b}
+.fuel-stat.blue .fuel-stat-value{color:#60a5fa}
+.fuel-entry{background:#0d0d14;border:1px solid #1a1a22;border-radius:10px;padding:12px 14px;margin-bottom:8px}
+.fuel-entry-header{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.fuel-type-badge{padding:3px 8px;border-radius:5px;font-size:10px;font-weight:700;letter-spacing:.5px}
+.fuel-type-benzyna{background:rgba(239,68,68,.15);color:#ef4444;border:1px solid #7f1d1d}
+.fuel-type-diesel{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid #92400e}
+.fuel-type-lpg{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid #166534}
+.fuel-entry-date{font-size:13px;color:#9ca3af}
+.fuel-entry-km{font-size:12px;color:#6b7280}
+.fuel-entry-details{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;padding-top:8px;border-top:1px solid #1a1a22}
+.fuel-detail{text-align:center}
+.fuel-detail-value{font-size:14px;font-weight:600;color:#e5e7eb}
+.fuel-detail-label{font-size:9px;color:#374151;letter-spacing:.3px}
+.fuel-consumption{font-size:14px;font-weight:700;padding:4px 10px;border-radius:6px;margin-left:auto}
+.fuel-consumption.good{background:rgba(34,197,94,.15);color:#22c55e}
+.fuel-consumption.medium{background:rgba(251,191,36,.15);color:#fbbf24}
+.fuel-consumption.bad{background:rgba(239,68,68,.15);color:#ef4444}
+.fuel-savings{font-size:11px;color:#22c55e;margin-top:6px;padding:6px 10px;background:rgba(34,197,94,.08);border-radius:6px;border:1px solid rgba(34,197,94,.2)}
 #legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;padding:18px 14px 8px;border-top:1px solid #111118;margin-top:18px}
 .leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:#27272d}
 .leg-dot{width:7px;height:7px;border-radius:50%}
-/* EMPTY */
 .empty{text-align:center;padding:50px 0;color:#1e1e26}
 .empty-icon{font-size:38px;margin-bottom:8px}
 .empty-txt{font-family:'Barlow Condensed',sans-serif;font-size:18px}
-/* TOAST */
 #toast{position:fixed;top:16px;right:16px;z-index:999;border-radius:8px;padding:9px 16px;font-size:12px;color:#e5e7eb;box-shadow:0 4px 20px rgba(0,0,0,.6);pointer-events:none;opacity:0;transition:opacity .2s;max-width:calc(100vw - 32px)}
 #toast.show{opacity:1}
-/* PWA Install Banner */
 #pwa-install-banner{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1a1a22;border:1px solid #f59e0b;border-radius:12px;padding:12px 20px;z-index:100;box-shadow:0 8px 32px rgba(0,0,0,.6);max-width:calc(100vw - 40px)}
 #pwa-install-banner.show{display:flex;align-items:center;gap:12px}
 #pwa-install-banner button{padding:8px 16px;border-radius:8px;font-weight:600;font-size:12px;cursor:pointer;border:none}
 #pwa-install-banner .install-btn{background:#f59e0b;color:#000}
 #pwa-install-banner .dismiss-btn{background:transparent;color:#6b7280;border:1px solid #27272d}
-/* Offline indicator */
 #offline-indicator{display:none;position:fixed;top:52px;left:0;right:0;background:#7f1d1d;color:#fca5a5;text-align:center;padding:6px;font-size:11px;z-index:100}
 #offline-indicator.show{display:block}
-/* PRINT */
-@media print{
-  body{background:#fff;color:#111;font-family:Arial,sans-serif}
-  #topbar,#tabs,#legend,.btn,.toolbar,.tl-btns,#data-menu-wrap{display:none!important}
-  .item-expand{display:block!important}
-  #car-header,#items-list,#items-list .item-card,#items-list .item-row{break-inside:avoid}
-}
+@media print{body{background:#fff;color:#111;font-family:Arial,sans-serif}#topbar,#tabs,#legend,.btn,.toolbar,.tl-btns,#data-menu-wrap{display:none!important}.item-expand{display:block!important}}
 </style>
 </head>
 <body>
-
 <div id="toast"></div>
-<div id="offline-indicator">📴 Tryb offline - dane zapisywane lokalnie</div>
-<div id="pwa-install-banner">
-  <span style="font-size:13px">📲 Zainstaluj aplikację na telefonie</span>
-  <button class="install-btn" onclick="installPWA()">Instaluj</button>
-  <button class="dismiss-btn" onclick="dismissInstall()">Później</button>
-</div>
+<div id="offline-indicator">📴 Tryb offline</div>
+<div id="pwa-install-banner"><span style="font-size:13px">📲 Zainstaluj aplikację</span><button class="install-btn" onclick="installPWA()">Instaluj</button><button class="dismiss-btn" onclick="dismissInstall()">Później</button></div>
 <input type="file" id="file-input" accept=".html">
-
 <div id="topbar">
-  <div class="logo">
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 01-2-2v-4l3-6h16l3 6v4a2 2 0 01-2 2h-2M7 17h10M9 17a2 2 0 100 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4z"/></svg>
-    <span id="app-name-display">AUTOSERWIS</span>
-    <button onclick="editAppName()" title="Zmień nazwę" style="background:none;border:none;color:#4b5563;padding:2px 4px;cursor:pointer;display:flex;align-items:center;margin-left:1px">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-    </button>
-  </div>
-  <div style="flex:1"></div>
-
-  <!-- ZAPISZ (szybki zapis do tego samego miejsca) -->
-  <button onclick="doQuickSave()" title="Zapisz plik" style="background:rgba(34,197,94,.12);border:1px solid #166534;border-radius:7px;padding:6px 12px;color:#22c55e;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px;margin-right:6px">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"/></svg>
-    Zapisz
-  </button>
-
-  <div id="data-menu-wrap">
-    <button class="btn btn-amber" onclick="toggleDataMenu()">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      Menu
-      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="data-chev"><path d="M6 9l6 6 6-6"/></svg>
-    </button>
-    <div id="data-menu">
-      <div class="dm-section">ZAPIS I KOPIA</div>
-      <div class="dm-item" onclick="doQuickSave();closeDataMenu()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"/></svg>
-        <div><div class="dm-item-name">Zapisz</div><div class="dm-item-sub">wybierz miejsce i nadpisz / zapisz nowy</div></div>
-      </div>
-      <div class="dm-item" onclick="doExportFull()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#86efac" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        <div><div class="dm-item-name">Pobierz kopię z historią</div><div class="dm-item-sub">.html — pełna aplikacja z danymi</div></div>
-      </div>
-      <div class="dm-section">UDOSTĘPNIANIE</div>
-      <div class="dm-item" onclick="doExportTemplate()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
-        <div><div class="dm-item-name">Eksportuj czystą aplikację</div><div class="dm-item-sub">.html — bez żadnych danych</div></div>
-      </div>
-      <div class="dm-section">WCZYTYWANIE</div>
-      <div class="dm-item" onclick="document.getElementById('file-input').click();closeDataMenu()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
-        <div><div class="dm-item-name">Wczytaj plik .html</div><div class="dm-item-sub">zastąp lub dodaj do istniejących</div></div>
-      </div>
-      <div class="dm-section">RAPORT</div>
-      <div class="dm-item" onclick="doPrintPDF();closeDataMenu()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
-        <div><div class="dm-item-name">Eksportuj PDF</div><div class="dm-item-sub">otwiera podgląd wydruku → Zapisz jako PDF</div></div>
-      </div>
-      <div class="dm-item" onclick="doPDF();closeDataMenu()">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-        <div><div class="dm-item-name">Pobierz raport (.html)</div><div class="dm-item-sub">plik do otwarcia i udostępnienia</div></div>
-      </div>
-    </div>
-  </div>
+<div class="logo"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 01-2-2v-4l3-6h16l3 6v4a2 2 0 01-2 2h-2M7 17h10M9 17a2 2 0 100 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4z"/></svg><span id="app-name-display">AUTOSERWIS</span><button onclick="editAppName()" title="Zmień nazwę" style="background:none;border:none;color:#4b5563;padding:2px 4px;cursor:pointer;display:flex;margin-left:1px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button></div>
+<div style="flex:1"></div>
+<button onclick="doQuickSave()" title="Zapisz" style="background:rgba(34,197,94,.12);border:1px solid #166534;border-radius:7px;padding:6px 12px;color:#22c55e;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px;margin-right:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"/></svg>Zapisz</button>
+<div id="data-menu-wrap"><button class="btn btn-amber" onclick="toggleDataMenu()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>Menu<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="data-chev"><path d="M6 9l6 6 6-6"/></svg></button>
+<div id="data-menu"><div class="dm-section">ZAPIS</div><div class="dm-item" onclick="doQuickSave();closeDataMenu()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"/></svg><div><div class="dm-item-name">Zapisz</div><div class="dm-item-sub">zapisz plik</div></div></div><div class="dm-item" onclick="doExportFull()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#86efac" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><div><div class="dm-item-name">Pobierz kopię</div><div class="dm-item-sub">.html z danymi</div></div></div><div class="dm-section">WCZYTYWANIE</div><div class="dm-item" onclick="document.getElementById('file-input').click();closeDataMenu()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg><div><div class="dm-item-name">Wczytaj plik</div><div class="dm-item-sub">.html</div></div></div><div class="dm-section">RAPORT</div><div class="dm-item" onclick="doPrintPDF();closeDataMenu()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg><div><div class="dm-item-name">Drukuj PDF</div></div></div></div></div>
 </div>
-
 <div id="root"></div>
-
 <script>
-// ── PWA INSTALLATION ───────────────────────────────────────────────────────────
 let deferredPrompt;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;setTimeout(()=>{if(deferredPrompt&&!localStorage.getItem('pwa_install_dismissed'))document.getElementById('pwa-install-banner').classList.add('show');},3000);});
+function installPWA(){if(!deferredPrompt)return;deferredPrompt.prompt();deferredPrompt.userChoice.then(c=>{if(c.outcome==='accepted')toast('Zainstalowano!');deferredPrompt=null;document.getElementById('pwa-install-banner').classList.remove('show');});}
+function dismissInstall(){document.getElementById('pwa-install-banner').classList.remove('show');localStorage.setItem('pwa_install_dismissed','true');}
+window.addEventListener('online',()=>{document.getElementById('offline-indicator').classList.remove('show');toast('Online');});
+window.addEventListener('offline',()=>{document.getElementById('offline-indicator').classList.add('show');});
+if(!navigator.onLine)document.getElementById('offline-indicator').classList.add('show');
+
+const DEFAULT_ITEMS=[{name:"Olej silnikowy",km:10000,mo:12},{name:"Filtr oleju",km:10000,mo:12},{name:"Filtr powietrza",km:20000,mo:24},{name:"Filtr kabinowy",km:15000,mo:12},{name:"Filtr paliwa",km:30000,mo:36},{name:"Płyn hamulcowy",km:null,mo:24},{name:"Płyn chłodniczy",km:null,mo:24},{name:"Klocki hamulcowe",km:30000,mo:null},{name:"Tarcze hamulcowe",km:60000,mo:null},{name:"Świece zapłonowe",km:30000,mo:null},{name:"Pasek rozrządu",km:60000,mo:60},{name:"Paski klinowe",km:60000,mo:60},{name:"Zmiana opon",km:null,mo:6}];
+const SC={ok:{bg:"#091a10",border:"#166534",dot:"#22c55e",text:"#86efac",label:"OK"},warning:{bg:"#1c1408",border:"#92400e",dot:"#f59e0b",text:"#fcd34d",label:"WKRÓTCE"},overdue:{bg:"#1c0808",border:"#991b1b",dot:"#ef4444",text:"#fca5a5",label:"PRZETERMINOWANY"},unknown:{bg:"#111118",border:"#374151",dot:"#4b5563",text:"#6b7280",label:"BRAK DANYCH"}};
+const FUEL_TYPES={benzyna:{label:'BENZYNA',color:'#ef4444'},diesel:{label:'DIESEL',color:'#fbbf24'},lpg:{label:'LPG',color:'#22c55e'}};
+const LPG_FACTOR=0.17;
+const LINKED_GROUPS=[{trigger:"Olej silnikowy",linked:["Filtr oleju","Filtr powietrza","Filtr kabinowy"]}];
+const _TPL=(()=>{let h=document.documentElement.outerHTML;h=h.replace(/window\.__PD__=\{[^<]*\}/,'window.__PD__=null');return h;})();
+
+let _lsKey='autoserwis_main';
+let S={cars:[],activeCar:null,appName:"AUTOSERWIS",viewMode:'service',expandedItem:null,addEntryFor:null,editIntervalFor:null,editEntry:null,showAddCar:false,showAddItem:false,editCarId:null,importData:null,linkedModal:null,showAddFuel:false,draftAddCar:{name:"",plate:""},draftAddItem:{name:"",km:"",mo:""},draftAddEntry:{date:"",km:"",notes:""},draftEditEntry:{date:"",km:"",notes:""},draftInterval:{km:"",mo:""},draftFuel:{date:"",km:"",liters:"",totalCost:"",fuelType:"benzyna",gasolinePrice:""}};
+
+const uid=()=>Math.random().toString(36).slice(2,9);
+const today=()=>new Date().toISOString().slice(0,10);
+const fmtKm=n=>n!=null?Number(n).toLocaleString('pl-PL'):'—';
+const fmtNum=(n,dec=2)=>n!=null?Number(n).toLocaleString('pl-PL',{minimumFractionDigits:dec,maximumFractionDigits:dec}):'—';
+const fmtPLN=n=>n!=null?Number(n).toLocaleString('pl-PL',{minimumFractionDigits:2,maximumFractionDigits:2})+' zł':'—';
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+function newCar(name,plate){return{id:uid(),name,plate,currentKm:0,items:DEFAULT_ITEMS.map(t=>({id:uid(),name:t.name,kmInterval:t.km,monthInterval:t.mo,history:[]})),fuelups:[]};}
+
+function getStatus(item,currentKm){const h=[...item.history].sort((a,b)=>new Date(b.date)-new Date(a.date));const latest=h[0];if(!latest)return{status:"unknown",nextKm:null,nextDate:null,kmLeft:null,daysLeft:null};let kmLeft=null,daysLeft=null,nextKm=null,nextDate=null;if(item.kmInterval&&latest.km!=null){nextKm=Number(latest.km)+item.kmInterval;kmLeft=nextKm-currentKm;}if(item.monthInterval&&latest.date){const d=new Date(latest.date);d.setMonth(d.getMonth()+item.monthInterval);nextDate=d.toISOString().slice(0,10);daysLeft=Math.round((d-new Date())/86400000);}const overdue=(kmLeft!=null&&kmLeft<0)||(daysLeft!=null&&daysLeft<0);const warning=!overdue&&((kmLeft!=null&&kmLeft<1500)||(daysLeft!=null&&daysLeft<30));return{status:overdue?"overdue":warning?"warning":"ok",nextKm,nextDate,kmLeft,daysLeft};}
+
+function getFuelStats(car){if(!car.fuelups||car.fuelups.length===0)return null;const sorted=[...car.fuelups].sort((a,b)=>a.km-b.km);let totalKm=0,totalLiters=0,totalCost=0,totalSavings=0;const consumptions=[];for(let i=1;i<sorted.length;i++){const prev=sorted[i-1];const curr=sorted[i];const distance=curr.km-prev.km;if(distance>0&&curr.liters>0){const consumption=(curr.liters/distance)*100;consumptions.push({consumption,distance,fuelType:curr.fuelType});totalKm+=distance;totalLiters+=curr.liters;totalCost+=curr.totalCost||0;if(curr.fuelType==='lpg'){const gasPrice=curr.gasolinePrice||getLastGasolinePrice(car,curr.date);if(gasPrice>0){const equivalentGasLiters=curr.liters*(1-LPG_FACTOR);const wouldCostGas=equivalentGasLiters*gasPrice;const actualCost=curr.totalCost||0;totalSavings+=Math.max(0,wouldCostGas-actualCost);}}}}if(sorted.length===1){totalCost=sorted[0].totalCost||0;totalLiters=sorted[0].liters||0;}const avgConsumption=consumptions.length>0?consumptions.reduce((a,c)=>a+c.consumption,0)/consumptions.length:null;return{totalKm,totalLiters,totalCost,totalSavings,avgConsumption,entriesCount:car.fuelups.length};}
+
+function getLastGasolinePrice(car,beforeDate){if(!car.fuelups)return 0;const sorted=[...car.fuelups].filter(f=>f.fuelType==='benzyna'&&f.totalCost>0&&f.liters>0&&f.date<=beforeDate).sort((a,b)=>new Date(b.date)-new Date(a.date));if(sorted.length>0)return sorted[0].totalCost/sorted[0].liters;return 0;}
+
+function getConsumptionForEntry(car,entryId){if(!car.fuelups)return null;const sorted=[...car.fuelups].sort((a,b)=>a.km-b.km);const idx=sorted.findIndex(f=>f.id===entryId);if(idx<=0)return null;const prev=sorted[idx-1];const curr=sorted[idx];const distance=curr.km-prev.km;if(distance<=0||curr.liters<=0)return null;return{consumption:(curr.liters/distance)*100,distance};}
+
+function getLPGSavings(car,entry){if(entry.fuelType!=='lpg')return null;const gasPrice=entry.gasolinePrice||getLastGasolinePrice(car,entry.date);if(gasPrice<=0||!entry.liters||!entry.totalCost)return null;const equivalentGasLiters=entry.liters*(1-LPG_FACTOR);const wouldCostGas=equivalentGasLiters*gasPrice;return Math.max(0,wouldCostGas-entry.totalCost);}
+
+function loadState(){const instanceId=window.__PD__?.instanceId||'main';_lsKey=`autoserwis_${instanceId}`;try{const d=JSON.parse(localStorage.getItem(_lsKey)||'null');if(d&&Array.isArray(d.cars)&&d._seeded){S.cars=d.cars.map(c=>({...c,fuelups:c.fuelups||[]}));S.activeCar=d.cars[0]?.id||null;if(d.appName)S.appName=d.appName;return;}}catch(e){}if(window.__PD__?.fresh){if(window.__PD__.appName)S.appName=window.__PD__.appName;S.cars=[];S.activeCar=null;saveState();return;}if(window.__PD__!==null&&window.__PD__!==undefined){S.cars=(window.__PD__.cars||[]).map(c=>({...c,fuelups:c.fuelups||[]}));S.activeCar=S.cars[0]?.id||null;if(window.__PD__.appName)S.appName=window.__PD__.appName;saveState();return;}const c=newCar("Moje auto","");S.cars=[c];S.activeCar=c.id;saveState();}
+
+function saveState(){try{localStorage.setItem(_lsKey,JSON.stringify({cars:S.cars,appName:S.appName,_seeded:true}));}catch(e){}}
+function updateAppTitle(){const el=document.getElementById('app-name-display');if(el)el.textContent=S.appName;document.title=S.appName;}
+function editAppName(){const val=prompt('Podaj nową nazwę:',S.appName);if(val===null||!val.trim())return;S.appName=val.trim().toUpperCase();saveState();renderAppName();toast('Zmieniono!');}
+function renderAppName(){const el=document.getElementById('app-name-display');if(el)el.textContent=S.appName;document.title=S.appName;}
+
+let _toastTimer;function toast(msg,type='ok'){const el=document.getElementById('toast');el.textContent=msg;el.style.background=type==='err'?'#7f1d1d':'#14532d';el.style.border=`1px solid ${type==='err'?'#dc2626':'#16a34a'}`;el.classList.add('show');clearTimeout(_toastTimer);_toastTimer=setTimeout(()=>el.classList.remove('show'),2500);}
+
+function toggleDataMenu(){const m=document.getElementById('data-menu');const c=document.getElementById('data-chev');const open=m.classList.toggle('open');c.innerHTML=open?'<path d="M18 15l-6-6-6 6"/>':'<path d="M6 9l6 6 6-6"/>';}
+function closeDataMenu(){document.getElementById('data-menu').classList.remove('open');document.getElementById('data-chev').innerHTML='<path d="M6 9l6 6 6-6"/>';}
+document.addEventListener('click',e=>{if(!e.target.closest('#data-menu-wrap'))closeDataMenu();});
+
+function buildExportHTML(cars){const payload={cars,appName:S.appName,instanceId:uid()};return _TPL.replace('window.__PD__=null','window.__PD__='+JSON.stringify(payload));}
+let _saveHandle=null;
+function fallbackDownload(blob,name){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+async function saveWithPicker(blob,suggestedName){if(window.showSaveFilePicker){try{const handle=await window.showSaveFilePicker({suggestedName,types:[{description:'HTML',accept:{'text/html':['.html']}}],startIn:'downloads'});const w=await handle.createWritable();await w.write(blob);await w.close();return handle;}catch(e){if(e.name==='AbortError')return null;fallbackDownload(blob,suggestedName);return true;}}fallbackDownload(blob,suggestedName);return true;}
+async function doQuickSave(){const blob=new Blob([buildExportHTML(S.cars)],{type:'text/html;charset=utf-8'});const name=(S.appName.toLowerCase().replace(/\s+/g,'-')||'autoserwis')+'.html';if(_saveHandle){try{const w=await _saveHandle.createWritable();await w.write(blob);await w.close();toast('✓ Zapisano!');return;}catch(e){_saveHandle=null;}}const h=await saveWithPicker(blob,name);if(h&&h!==true)_saveHandle=h;if(h)toast('✓ Zapisano!');}
+function doExportFull(){closeDataMenu();const blob=new Blob([buildExportHTML(S.cars)],{type:'text/html;charset=utf-8'});const name=(S.appName.toLowerCase().replace(/\s+/g,'-')||'kopia')+'-'+today()+'.html';saveWithPicker(blob,name).then(h=>{if(h)toast('Pobrano!');});}
+function doPrintPDF(){const appName=S.appName;const now=new Date().toLocaleDateString('pl-PL',{day:'2-digit',month:'long',year:'numeric'});const sColor={ok:'#16a34a',warning:'#d97706',overdue:'#dc2626',unknown:'#9ca3af'};const sLabel={ok:'OK',warning:'Wkrótce',overdue:'Przeterminowany',unknown:'Brak danych'};const carBlocks=S.cars.map(car=>{const iBlocks=car.items.map(item=>{const{status}=getStatus(item,car.currentKm);const sorted=[...item.history].sort((a,b)=>new Date(b.date)-new Date(a.date));const rows=sorted.map(h=>`<tr><td>${h.date}</td><td style="text-align:right">${h.km!=null?fmtKm(h.km)+' km':'—'}</td><td style="color:#555;font-style:italic">${h.notes||''}</td></tr>`).join('');return`<div style="border:1px solid #e5e7eb;border-radius:6px;overflow:hidden;margin-bottom:9px"><div style="background:#f9fafb;padding:7px 11px;border-bottom:1px solid #e5e7eb;display:flex;align-items:center;gap:8px"><div style="width:8px;height:8px;border-radius:50%;background:${sColor[status]}"></div><strong>${item.name}</strong><span style="margin-left:auto;font-size:11px;color:${sColor[status]};font-weight:700">${sLabel[status]}</span></div>${sorted.length?`<table style="width:100%;border-collapse:collapse;font-size:12px"><tbody>${rows}</tbody></table>`:'<div style="padding:6px 11px;font-size:11px;color:#aaa">Brak wpisów</div>'}</div>`;}).join('');return`<div style="margin-bottom:22px"><div style="display:flex;align-items:baseline;gap:10px;border-bottom:2px solid #111;padding-bottom:7px;margin-bottom:10px"><h2 style="margin:0;font-size:18px">${car.name}</h2>${car.plate?`<span style="font-size:11px;border:1px solid #ccc;border-radius:3px;padding:1px 7px;letter-spacing:2px">${car.plate}</span>`:''}<span style="margin-left:auto;font-size:11px">Przebieg: <b>${fmtKm(car.currentKm)} km</b></span></div>${iBlocks}</div>`;}).join('');const w=window.open('','_blank');if(w){w.document.write(`<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>${appName}</title><style>body{font-family:'Segoe UI',Arial,sans-serif;color:#111;padding:24px 32px;max-width:860px;margin:0 auto}h1{margin:0;font-size:20px}@media print{@page{margin:15mm}}</style></head><body><div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px"><h1>🚗 ${appName}</h1><span style="margin-left:auto;font-size:11px;color:#aaa">${now}</span></div><hr style="border:none;border-top:1px solid #e5e7eb;margin:12px 0 20px">${carBlocks}<script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close();}}
+
+document.getElementById('file-input').addEventListener('change',function(e){const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=ev=>{try{const text=ev.target.result;const match=text.match(/window\.__PD__=(\{[\s\S]*?\})\s*<\/script>/);if(!match)throw new Error('Brak danych');const payload=JSON.parse(match[1]);if(!payload.cars||!Array.isArray(payload.cars))throw new Error('Błąd');S.importData={cars:payload.cars,appName:payload.appName||null};render();}catch(err){toast('Błąd pliku','err');}};reader.readAsText(file);this.value='';});
+
+function doImport(mode){const incoming=S.importData.cars.map(c=>({...c,id:uid(),fuelups:(c.fuelups||[]).map(f=>({...f,id:uid()})),items:(c.items||[]).map(i=>({...i,id:uid(),history:(i.history||[]).map(h=>({...h,id:uid()}))}))}));if(mode==='replace'){S.cars=incoming;S.activeCar=incoming[0]?.id||null;if(S.importData.appName){S.appName=S.importData.appName;updateAppTitle();}toast(`Wczytano ${incoming.length} aut`);}else{S.cars=[...S.cars,...incoming];S.activeCar=incoming[0]?.id||S.activeCar;toast(`Dodano ${incoming.length} aut`);}S.importData=null;saveState();render();}
+
+function render(){const root=document.getElementById('root');const car=S.cars.find(c=>c.id===S.activeCar);let html='';
+if(S.importData){const d=S.importData;html+=`<div class="overlay fade" onclick="if(event.target===this){S.importData=null;render()}"><div class="modal" onclick="event.stopPropagation()"><div class="modal-title">📂 Wczytaj dane</div><div class="modal-sub">Znaleziono <strong style="color:#e5e7eb">${d.cars.length} aut</strong></div><button class="import-opt" style="background:rgba(96,165,250,.1);border:1px solid #1e3a5f" onclick="doImport('add')"><div style="font-size:13px;font-weight:600;color:#60a5fa">➕ Dodaj do istniejących</div></button><button class="import-opt" style="background:rgba(239,68,68,.08);border:1px solid #7f1d1d" onclick="doImport('replace')"><div style="font-size:13px;font-weight:600;color:#ef4444">🔄 Zastąp wszystkie</div></button><button class="btn btn-ghost btn-sm" onclick="S.importData=null;render()">Anuluj</button></div></div>`;}
+if(S.linkedModal){const lm=S.linkedModal;const checkedCount=lm.items.filter(i=>i.checked).length;html+=`<div class="overlay fade"><div class="modal"><div class="modal-title">🔗 Powiązane filtry</div><div class="modal-sub">Data: ${lm.entry.date}</div><div style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px">${lm.items.map(i=>`<label style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:8px;cursor:pointer;background:${i.checked?'rgba(245,158,11,.1)':'rgba(255,255,255,.03)'};border:1px solid ${i.checked?'#92400e':'#27272d'}" onclick="toggleLinkedItem('${i.id}')"><div style="width:20px;height:20px;border-radius:5px;border:2px solid ${i.checked?'#f59e0b':'#374151'};background:${i.checked?'#f59e0b':'transparent'};display:flex;align-items:center;justify-content:center">${i.checked?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>':''}</div><span style="font-size:14px;color:#e5e7eb">${esc(i.name)}</span></label>`).join('')}</div><div style="display:flex;gap:8px"><button class="btn btn-amber" onclick="saveLinkedEntries()" ${checkedCount===0?'disabled style="opacity:.4"':''}>Zapisz (${checkedCount})</button><button class="btn btn-ghost" onclick="skipLinkedEntries()">Pomiń</button></div></div></div>`;}
+html+='<div id="tabs">';S.cars.forEach(c=>{const cnt=c.items.reduce((a,i)=>{const s=getStatus(i,c.currentKm).status;if(s==='overdue')a.o++;else if(s==='warning')a.w++;return a;},{o:0,w:0});const active=c.id===S.activeCar;html+=`<button class="tab${active?' active':''}" onclick="setActiveCar('${c.id}')"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 01-2-2v-4l3-6h16l3 6v4a2 2 0 01-2 2h-2M7 17h10M9 17a2 2 0 100 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4z"/></svg>${esc(c.name)}${c.plate?`<span style="font-size:10px;color:#374151;letter-spacing:1px">${esc(c.plate)}</span>`:''}${cnt.o>0?`<span class="badge badge-red">${cnt.o}</span>`:''}${!cnt.o&&cnt.w>0?`<span class="badge badge-amber">${cnt.w}</span>`:''}</button>`;});
+html+=`<button class="tab" onclick="S.showAddCar=!S.showAddCar;render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Dodaj auto</button></div>`;
+if(S.showAddCar){html+=`<div class="panel-form fade"><div class="panel-form-title">NOWE AUTO</div><div class="form-row">${fld('NAZWA','text',S.draftAddCar.name,"S.draftAddCar.name=this.value",'np. BMW E46',180)}${fld('REJESTRACJA','text',S.draftAddCar.plate,"S.draftAddCar.plate=this.value",'',120)}<div class="form-btns"><button class="btn btn-amber" onclick="addCar()">DODAJ</button><button class="btn btn-ghost" onclick="S.showAddCar=false;render()">Anuluj</button></div></div></div>`;}
+if(car){const counts=car.items.reduce((a,i)=>{a[getStatus(i,car.currentKm).status]++;return a;},{ok:0,warning:0,overdue:0,unknown:0});
+html+=`<div id="car-header" class="card">`;
+if(S.editCarId===car.id){html+=`<div class="form-row" style="padding:13px 16px">${fld('NAZWA','text',car.name,`updateCarField('${car.id}','name',this.value)`,'',180)}${fld('REJESTRACJA','text',car.plate,`updateCarField('${car.id}','plate',this.value)`,'',120)}<div class="form-btns"><button class="btn btn-green" onclick="S.editCarId=null;render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>OK</button></div></div>`;}
+else{html+=`<div style="padding:13px 16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center"><div style="flex:1"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap"><span class="car-name">${esc(car.name)}</span>${car.plate?`<span class="plate">${esc(car.plate)}</span>`:''}<button style="background:none;border:none;color:#27272d;padding:3px;display:flex" onclick="S.editCarId='${car.id}';render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button style="background:none;border:none;color:#27272d;padding:3px;display:flex" onclick="deleteCar('${car.id}')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button></div></div><div class="km-wrap"><span class="km-label">PRZEBIEG</span><div class="km-input-row"><input type="number" class="km-input" value="${car.currentKm}" onchange="updateCarField('${car.id}','currentKm',parseInt(this.value)||0);render()"><span style="color:#374151;font-size:12px">km</span></div></div><div class="status-pills">${['overdue','warning','ok'].map(s=>counts[s]>0?`<div class="status-pill" style="background:${SC[s].bg};border:1px solid ${SC[s].border}"><div class="pill-num" style="color:${SC[s].dot}">${counts[s]}</div><div class="pill-lbl" style="color:${SC[s].text}">${SC[s].label}</div></div>`:'').join('')}</div></div>`;}
+html+='</div>';
+html+=`<div class="view-toggle"><button class="${S.viewMode==='service'?'active':''}" onclick="S.viewMode='service';render()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Serwisy</button><button class="${S.viewMode==='fuel'?'active':''}" onclick="S.viewMode='fuel';render()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22h12M5 22V11a2 2 0 012-2h4a2 2 0 012 2v11M7 9V6a2 2 0 012-2h0a2 2 0 012 2v3M17 11l2-2 2 2v7a2 2 0 01-2 2h0a2 2 0 01-2-2v-7z"/></svg>Tankowania</button></div>`;
+if(S.viewMode==='service'){html+='<div id="items-list">';car.items.forEach(item=>{const{status,nextKm,nextDate,kmLeft,daysLeft}=getStatus(item,car.currentKm);const cfg=SC[status];const sorted=[...item.history].sort((a,b)=>new Date(b.date)-new Date(a.date));const open=S.expandedItem===item.id;
+html+=`<div class="item-card" style="background:${cfg.bg};border:1px solid ${cfg.border}"><div class="item-row" onclick="toggleItem('${item.id}')"><div class="item-dot" style="background:${cfg.dot};${status==='overdue'?'animation:pulse 1.8s infinite;box-shadow:0 0 7px '+cfg.dot:''}"></div><div style="flex:1;min-width:70px"><div class="item-name">${esc(item.name)}</div><div class="item-sub">${item.kmInterval?'co '+fmtKm(item.kmInterval)+' km':''}${item.kmInterval&&item.monthInterval?' · ':''}${item.monthInterval?'co '+item.monthInterval+' mies.':''}${!item.kmInterval&&!item.monthInterval?'brak interwału':''}</div></div><div class="col-last"><div class="col-lbl">OSTATNIO</div>${sorted[0]?`<div style="font-size:12px;color:#9ca3af">${sorted[0].date}</div>${sorted[0].km!=null?`<div style="font-size:10px;color:#4b5563">${fmtKm(sorted[0].km)} km</div>`:''}`:`<div style="font-size:11px;color:#27272d">—</div>`}</div><div class="col-next"><div class="col-lbl">NASTĘPNY</div>${nextKm?`<div style="font-size:12px;font-weight:600;color:${cfg.text}">${fmtKm(nextKm)} km</div>`:''}${nextDate?`<div style="font-size:11px;color:${cfg.text}">${nextDate}</div>`:''}${!nextKm&&!nextDate?`<div style="font-size:11px;color:#27272d">—</div>`:''}</div><div class="col-left">${kmLeft!=null?`<div style="font-size:12px;font-weight:700;color:${kmLeft<0?'#ef4444':kmLeft<1500?'#f59e0b':'#22c55e'}">${kmLeft<0?fmtKm(Math.abs(kmLeft))+' po!':fmtKm(kmLeft)+' km'}</div>`:''}${daysLeft!=null?`<div style="font-size:10px;color:${daysLeft<0?'#ef4444':daysLeft<30?'#f59e0b':'#374151'}">${daysLeft<0?Math.abs(daysLeft)+' dni po!':daysLeft+' dni'}</div>`:''}${sorted.length>0?`<div style="font-size:9px;color:#27272d;margin-top:2px">${sorted.length} wpisów</div>`:''}</div><div style="color:#27272d;margin-left:4px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="${open?'M18 15l-6-6-6 6':'M6 9l6 6 6-6'}"/></svg></div></div>`;
+if(open){html+=`<div class="item-expand fade" style="border-top-color:${cfg.border}"><div class="toolbar"><button class="btn btn-amber btn-sm" onclick="openAddEntry('${item.id}')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Dodaj wpis</button><button class="btn btn-blue btn-sm" onclick="openEditInterval('${item.id}')">Interwał</button><div style="margin-left:auto"><button class="btn btn-danger btn-sm" onclick="deleteItem('${car.id}','${item.id}')">Usuń</button></div></div>`;
+if(S.editIntervalFor===item.id){html+=`<div class="fade" style="background:#0a0a10;border:1px solid #1e3a5f;border-radius:8px;padding:11px;margin-bottom:12px"><div class="form-row">${fld('CO ILE KM','number',S.draftInterval.km,"S.draftInterval.km=this.value",'',120)}${fld('CO ILE MIES.','number',S.draftInterval.mo,"S.draftInterval.mo=this.value",'',120)}<div class="form-btns"><button class="btn btn-amber" onclick="saveInterval('${car.id}','${item.id}')">Zapisz</button><button class="btn btn-ghost" onclick="S.editIntervalFor=null;render()">✕</button></div></div></div>`;}
+if(S.addEntryFor===item.id){html+=`<div class="fade" style="background:#0a0a10;border:1px dashed #27272d;border-radius:8px;padding:11px;margin-bottom:12px"><div class="form-row">${fld('DATA','date',S.draftAddEntry.date,"S.draftAddEntry.date=this.value",'',130)}${fld('PRZEBIEG','number',S.draftAddEntry.km,"S.draftAddEntry.km=this.value",'km',90)}${fld('UWAGI','text',S.draftAddEntry.notes,"S.draftAddEntry.notes=this.value",'',160)}<div class="form-btns"><button class="btn btn-green" onclick="addEntry('${car.id}','${item.id}')">Dodaj</button><button class="btn btn-ghost" onclick="S.addEntryFor=null;render()">✕</button></div></div></div>`;}
+html+='<div>';if(sorted.length===0){html+=`<div style="text-align:center;padding:14px 0 6px;color:#27272d;font-size:12px">Brak historii</div>`;}else{html+=`<div class="section-divider">HISTORIA · ${sorted.length}</div>`;sorted.forEach((entry,i)=>{const isLatest=i===0;const isEditing=S.editEntry&&S.editEntry.itemId===item.id&&S.editEntry.entryId===entry.id;html+=`<div class="tl-entry"><div class="tl-line"></div><div class="tl-dot" style="background:${isLatest?'#f59e0b':'#27272d'};border:2px solid ${isLatest?'#d97706':'#1e1e26'};${isLatest?'box-shadow:0 0 7px rgba(245,158,11,.45)':''}"></div>`;if(isEditing){html+=`<div style="background:#0d0d14;border:1px solid #27272d;border-radius:8px;padding:10px"><div class="form-row">${fld('DATA','date',S.draftEditEntry.date,"S.draftEditEntry.date=this.value",'',120)}${fld('KM','number',S.draftEditEntry.km,"S.draftEditEntry.km=this.value",'',80)}${fld('UWAGI','text',S.draftEditEntry.notes,"S.draftEditEntry.notes=this.value",'',140)}<div class="form-btns"><button class="btn btn-green" onclick="saveEditEntry('${car.id}','${item.id}','${entry.id}')">OK</button><button class="btn btn-ghost" onclick="S.editEntry=null;render()">✕</button></div></div></div>`;}else{html+=`<div class="tl-row"><span class="tl-date" style="color:${isLatest?'#f59e0b':'#6b7280'};font-weight:${isLatest?600:400}">${entry.date}</span>${entry.km!=null?`<span class="tl-km">${fmtKm(entry.km)} km</span>`:''}${entry.notes?`<span class="tl-notes">${esc(entry.notes)}</span>`:''}${isLatest?`<span class="tl-latest-tag">OSTATNI</span>`:''}<div class="tl-btns"><button class="tl-btn" onclick="startEditEntry('${item.id}','${entry.id}','${esc(entry.date)}','${entry.km!=null?entry.km:''}','${esc(entry.notes||'')}')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="tl-btn" onclick="deleteEntry('${car.id}','${item.id}','${entry.id}')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button></div></div>`;}html+='</div>';});}html+='</div></div>';}html+='</div>';});
+if(S.showAddItem){html+=`<div class="fade" style="background:#0d0d14;border:1px solid #27272d;border-radius:10px;padding:13px"><div class="panel-form-title">NOWA POZYCJA</div><div class="form-row">${fld('NAZWA','text',S.draftAddItem.name,"S.draftAddItem.name=this.value",'',160)}${fld('CO ILE KM','number',S.draftAddItem.km,"S.draftAddItem.km=this.value",'',90)}${fld('CO ILE MIES.','number',S.draftAddItem.mo,"S.draftAddItem.mo=this.value",'',90)}<div class="form-btns"><button class="btn btn-amber" onclick="addItem('${car.id}')">DODAJ</button><button class="btn btn-ghost" onclick="S.showAddItem=false;render()">Anuluj</button></div></div></div>`;}else{html+=`<button style="width:100%;padding:10px;border-radius:9px;background:transparent;border:1px dashed #1a1a20;color:#27272d;font-size:12px;display:flex;align-items:center;justify-content:center;gap:6px;margin-top:2px" onclick="S.showAddItem=true;render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Dodaj pozycję</button>`;}html+='</div>';}
+else{const stats=getFuelStats(car);if(stats&&stats.entriesCount>0){html+='<div class="fuel-stats">';html+=`<div class="fuel-stat amber"><div class="fuel-stat-value">${stats.avgConsumption?fmtNum(stats.avgConsumption,1)+' L':'—'}</div><div class="fuel-stat-label">ŚR. SPALANIE /100km</div></div>`;html+=`<div class="fuel-stat blue"><div class="fuel-stat-value">${fmtKm(stats.totalKm)}</div><div class="fuel-stat-label">PRZEJECHANE KM</div></div>`;html+=`<div class="fuel-stat"><div class="fuel-stat-value">${fmtPLN(stats.totalCost)}</div><div class="fuel-stat-label">ŁĄCZNY KOSZT</div></div>`;if(stats.totalSavings>0){html+=`<div class="fuel-stat green"><div class="fuel-stat-value">${fmtPLN(stats.totalSavings)}</div><div class="fuel-stat-label">OSZCZĘDNOŚCI LPG</div></div>`;}html+='</div>';}
+html+='<div id="items-list">';if(S.showAddFuel){const lastGasPrice=getLastGasolinePrice(car,today());html+=`<div class="panel-form fade"><div class="panel-form-title">⛽ NOWE TANKOWANIE</div><div class="form-row">${fld('DATA','date',S.draftFuel.date,"S.draftFuel.date=this.value",'',120)}${fld('LICZNIK','number',S.draftFuel.km,"S.draftFuel.km=this.value",'km',100)}${fld('LITRY','number',S.draftFuel.liters,"S.draftFuel.liters=this.value",'',70)}${fld('KWOTA','number',S.draftFuel.totalCost,"S.draftFuel.totalCost=this.value",'zł',80)}<div class="fld"><label>PALIWO</label><select onchange="S.draftFuel.fuelType=this.value;render()" style="width:90px"><option value="benzyna" ${S.draftFuel.fuelType==='benzyna'?'selected':''}>Benzyna</option><option value="diesel" ${S.draftFuel.fuelType==='diesel'?'selected':''}>Diesel</option><option value="lpg" ${S.draftFuel.fuelType==='lpg'?'selected':''}>LPG</option></select></div>${S.draftFuel.fuelType==='lpg'?fld('CENA BENZYNY/L','number',S.draftFuel.gasolinePrice||lastGasPrice,"S.draftFuel.gasolinePrice=this.value",'zł',100):''}</div><div class="form-btns"><button class="btn btn-green" onclick="addFuelup('${car.id}')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Dodaj</button><button class="btn btn-ghost" onclick="S.showAddFuel=false;render()">Anuluj</button></div></div>`;}else{html+=`<button style="width:100%;padding:12px;border-radius:9px;background:rgba(34,197,94,.08);border:1px dashed #166534;color:#22c55e;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:12px" onclick="openAddFuel()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>Dodaj tankowanie</button>`;}
+const fuelups=[...(car.fuelups||[])].sort((a,b)=>new Date(b.date)-new Date(a.date));if(fuelups.length===0){html+=`<div style="text-align:center;padding:40px 0;color:#27272d"><div style="font-size:32px;margin-bottom:8px">⛽</div><div style="font-size:14px">Brak historii tankowań</div></div>`;}else{html+=`<div class="section-divider" style="margin-top:8px">HISTORIA TANKOWAŃ · ${fuelups.length}</div>`;fuelups.forEach(f=>{const consumptionData=getConsumptionForEntry(car,f.id);const savings=getLPGSavings(car,f);const pricePerLiter=f.liters>0&&f.totalCost>0?f.totalCost/f.liters:null;const fuelCfg=FUEL_TYPES[f.fuelType]||FUEL_TYPES.benzyna;let consumptionClass='';if(consumptionData){if(consumptionData.consumption<7)consumptionClass='good';else if(consumptionData.consumption<10)consumptionClass='medium';else consumptionClass='bad';}html+=`<div class="fuel-entry"><div class="fuel-entry-header"><span class="fuel-type-badge fuel-type-${f.fuelType}">${fuelCfg.label}</span><span class="fuel-entry-date">${f.date}</span><span class="fuel-entry-km">${fmtKm(f.km)} km</span>${consumptionData?`<span class="fuel-consumption ${consumptionClass}">${fmtNum(consumptionData.consumption,1)} L/100km</span>`:''}<button class="tl-btn" style="margin-left:auto" onclick="deleteFuelup('${car.id}','${f.id}')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button></div><div class="fuel-entry-details"><div class="fuel-detail"><div class="fuel-detail-value">${fmtNum(f.liters,2)} L</div><div class="fuel-detail-label">ZATANKOWANO</div></div><div class="fuel-detail"><div class="fuel-detail-value">${fmtPLN(f.totalCost)}</div><div class="fuel-detail-label">KOSZT</div></div>${pricePerLiter?`<div class="fuel-detail"><div class="fuel-detail-value">${fmtNum(pricePerLiter,2)} zł/L</div><div class="fuel-detail-label">CENA</div></div>`:''}${consumptionData?`<div class="fuel-detail"><div class="fuel-detail-value">${fmtKm(consumptionData.distance)}</div><div class="fuel-detail-label">DYSTANS</div></div>`:''}</div>${savings&&savings>0?`<div class="fuel-savings">💰 Oszczędność vs Benzyna: <strong>${fmtPLN(savings)}</strong></div>`:''}</div>`;});}html+='</div>';}}else if(!S.showAddCar){html+=`<div class="empty"><div class="empty-icon">🚗</div><div class="empty-txt">Dodaj pierwsze auto</div></div>`;}
+html+='<div id="legend">';Object.entries(SC).forEach(([k,v])=>{html+=`<div class="leg-item"><div class="leg-dot" style="background:${v.dot}"></div>${v.label}</div>`;});html+='<div class="leg-item">· dane lokalne</div></div>';root.innerHTML=html;}
+
+function fld(label,type,value,onchange,placeholder,width){return`<div class="fld"><label>${label}</label><input type="${type}" value="${esc(value??'')}" oninput="${onchange}" placeholder="${esc(placeholder)}" style="width:${width}px"></div>`;}
+
+function setActiveCar(id){S.activeCar=id;S.expandedItem=null;S.addEntryFor=null;S.editIntervalFor=null;S.editEntry=null;S.showAddItem=false;S.editCarId=null;S.showAddFuel=false;render();}
+function addCar(){if(!S.draftAddCar.name.trim())return;const c=newCar(S.draftAddCar.name.trim(),S.draftAddCar.plate.trim());S.cars.push(c);S.activeCar=c.id;S.draftAddCar={name:'',plate:''};S.showAddCar=false;saveState();render();toast('Auto dodane!');}
+function deleteCar(id){if(!confirm('Usunąć to auto?'))return;S.cars=S.cars.filter(c=>c.id!==id);S.activeCar=S.cars[0]?.id||null;saveState();render();toast('Usunięto.');}
+function updateCarField(carId,field,value){const car=S.cars.find(c=>c.id===carId);if(car){car[field]=value;saveState();}}
+function toggleItem(itemId){if(S.expandedItem===itemId){S.expandedItem=null;S.addEntryFor=null;S.editIntervalFor=null;S.editEntry=null;}else{S.expandedItem=itemId;S.addEntryFor=null;S.editIntervalFor=null;S.editEntry=null;}render();}
+function openAddEntry(itemId){S.addEntryFor=S.addEntryFor===itemId?null:itemId;S.editIntervalFor=null;S.editEntry=null;S.draftAddEntry={date:today(),km:'',notes:''};render();}
+function openEditInterval(itemId){S.editIntervalFor=S.editIntervalFor===itemId?null:itemId;S.addEntryFor=null;S.editEntry=null;const car=S.cars.find(c=>c.id===S.activeCar);const item=car?.items.find(i=>i.id===itemId);S.draftInterval={km:item?.kmInterval??'',mo:item?.monthInterval??''};render();}
+function addEntry(carId,itemId){if(!S.draftAddEntry.date)return;const car=S.cars.find(c=>c.id===carId);const item=car?.items.find(i=>i.id===itemId);if(!item)return;const entry={id:uid(),date:S.draftAddEntry.date,km:S.draftAddEntry.km!==''?parseInt(S.draftAddEntry.km):null,notes:S.draftAddEntry.notes};item.history.push(entry);S.addEntryFor=null;const group=LINKED_GROUPS.find(g=>g.trigger===item.name);if(group){const linkedItems=car.items.filter(i=>group.linked.includes(i.name)&&i.id!==itemId);if(linkedItems.length>0){S.linkedModal={carId,entry:{...entry,id:null},items:linkedItems.map(i=>({id:i.id,name:i.name,checked:true}))};saveState();render();return;}}saveState();render();toast('Dodano!');}
+function toggleLinkedItem(itemId){if(!S.linkedModal)return;S.linkedModal.items=S.linkedModal.items.map(i=>i.id===itemId?{...i,checked:!i.checked}:i);render();}
+function saveLinkedEntries(){if(!S.linkedModal)return;const car=S.cars.find(c=>c.id===S.linkedModal.carId);if(!car)return;S.linkedModal.items.filter(i=>i.checked).forEach(li=>{const item=car.items.find(i=>i.id===li.id);if(item)item.history.push({...S.linkedModal.entry,id:uid()});});const saved=S.linkedModal.items.filter(i=>i.checked).length;S.linkedModal=null;saveState();render();toast(`+${saved} filtrów!`);}
+function skipLinkedEntries(){S.linkedModal=null;saveState();render();toast('Dodano!');}
+function startEditEntry(itemId,entryId,date,km,notes){S.editEntry={itemId,entryId};S.draftEditEntry={date,km:km||'',notes:notes||''};S.addEntryFor=null;render();}
+function saveEditEntry(carId,itemId,entryId){const car=S.cars.find(c=>c.id===carId);const item=car?.items.find(i=>i.id===itemId);const entry=item?.history.find(h=>h.id===entryId);if(!entry)return;entry.date=S.draftEditEntry.date;entry.km=S.draftEditEntry.km!==''?parseInt(S.draftEditEntry.km):null;entry.notes=S.draftEditEntry.notes;S.editEntry=null;saveState();render();toast('OK!');}
+function deleteEntry(carId,itemId,entryId){const car=S.cars.find(c=>c.id===carId);const item=car?.items.find(i=>i.id===itemId);if(!item)return;item.history=item.history.filter(h=>h.id!==entryId);saveState();render();toast('Usunięto.');}
+function saveInterval(carId,itemId){const car=S.cars.find(c=>c.id===carId);const item=car?.items.find(i=>i.id===itemId);if(!item)return;item.kmInterval=S.draftInterval.km!==''?parseInt(S.draftInterval.km):null;item.monthInterval=S.draftInterval.mo!==''?parseInt(S.draftInterval.mo):null;S.editIntervalFor=null;saveState();render();toast('Zapisano!');}
+function addItem(carId){if(!S.draftAddItem.name.trim())return;const car=S.cars.find(c=>c.id===carId);if(!car)return;car.items.push({id:uid(),name:S.draftAddItem.name.trim(),kmInterval:S.draftAddItem.km?parseInt(S.draftAddItem.km):null,monthInterval:S.draftAddItem.mo?parseInt(S.draftAddItem.mo):null,history:[]});S.draftAddItem={name:'',km:'',mo:''};S.showAddItem=false;saveState();render();toast('Dodano!');}
+function deleteItem(carId,itemId){if(!confirm('Usunąć?'))return;const car=S.cars.find(c=>c.id===carId);if(car)car.items=car.items.filter(i=>i.id!==itemId);S.expandedItem=null;saveState();render();toast('Usunięto.');}
 
-window.addEventListener('beforeinstallprompt', (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  // Pokaż banner instalacji po 3 sekundach
-  setTimeout(() => {
-    if (deferredPrompt && !localStorage.getItem('pwa_install_dismissed')) {
-      document.getElementById('pwa-install-banner').classList.add('show');
-    }
-  }, 3000);
-});
+function openAddFuel(){S.showAddFuel=true;const car=S.cars.find(c=>c.id===S.activeCar);S.draftFuel={date:today(),km:car?.currentKm||'',liters:'',totalCost:'',fuelType:'benzyna',gasolinePrice:''};render();}
+function addFuelup(carId){const car=S.cars.find(c=>c.id===carId);if(!car)return;if(!S.draftFuel.date||!S.draftFuel.km||!S.draftFuel.liters){toast('Wypełnij pola','err');return;}const fuelup={id:uid(),date:S.draftFuel.date,km:parseFloat(S.draftFuel.km)||0,liters:parseFloat(S.draftFuel.liters)||0,totalCost:parseFloat(S.draftFuel.totalCost)||0,fuelType:S.draftFuel.fuelType,gasolinePrice:S.draftFuel.fuelType==='lpg'?(parseFloat(S.draftFuel.gasolinePrice)||0):0};if(!car.fuelups)car.fuelups=[];car.fuelups.push(fuelup);if(fuelup.km>car.currentKm)car.currentKm=fuelup.km;S.showAddFuel=false;S.draftFuel={date:'',km:'',liters:'',totalCost:'',fuelType:'benzyna',gasolinePrice:''};saveState();render();toast('Tankowanie dodane!');}
+function deleteFuelup(carId,fuelId){const car=S.cars.find(c=>c.id===carId);if(!car||!car.fuelups)return;car.fuelups=car.fuelups.filter(f=>f.id!==fuelId);saveState();render();toast('Usunięto.');}
 
-function installPWA() {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then((choice) => {
-    if (choice.outcome === 'accepted') {
-      toast('Aplikacja zainstalowana!');
-    }
-    deferredPrompt = null;
-    document.getElementById('pwa-install-banner').classList.remove('show');
-  });
-}
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('./sw.js').then(reg=>{console.log('[PWA] SW OK');reg.onupdatefound=()=>{const newWorker=reg.installing;newWorker.onstatechange=()=>{if(newWorker.state==='installed'&&navigator.serviceWorker.controller)toast('Nowa wersja!');};};}).catch(err=>console.log('[PWA] SW error:',err));});}
 
-function dismissInstall() {
-  document.getElementById('pwa-install-banner').classList.remove('show');
-  localStorage.setItem('pwa_install_dismissed', 'true');
-}
-
-// Offline detection
-window.addEventListener('online', () => {
-  document.getElementById('offline-indicator').classList.remove('show');
-  toast('Połączono z siecią');
-});
-
-window.addEventListener('offline', () => {
-  document.getElementById('offline-indicator').classList.add('show');
-});
-
-if (!navigator.onLine) {
-  document.getElementById('offline-indicator').classList.add('show');
-}
-
-// ── CONSTANTS ──────────────────────────────────────────────────────────────────
-const DEFAULT_ITEMS = [
-  {name:"Olej silnikowy",   km:10000, mo:12},
-  {name:"Filtr oleju",      km:10000, mo:12},
-  {name:"Filtr powietrza",  km:20000, mo:24},
-  {name:"Filtr kabinowy",   km:15000, mo:12},
-  {name:"Filtr paliwa",     km:30000, mo:36},
-  {name:"Płyn hamulcowy",   km:null,  mo:24},
-  {name:"Płyn chłodniczy",  km:null,  mo:24},
-  {name:"Klocki hamulcowe", km:30000, mo:null},
-  {name:"Tarcze hamulcowe", km:60000, mo:null},
-  {name:"Świece zapłonowe", km:30000, mo:null},
-  {name:"Pasek rozrządu",   km:60000, mo:60},
-  {name:"Paski klinowe",    km:60000, mo:60},
-  {name:"Zmiana opon",      km:null,  mo:6},
-];
-
-const SC = {
-  ok:      {bg:"#091a10",border:"#166534",dot:"#22c55e",text:"#86efac",label:"OK"},
-  warning: {bg:"#1c1408",border:"#92400e",dot:"#f59e0b",text:"#fcd34d",label:"WKRÓTCE"},
-  overdue: {bg:"#1c0808",border:"#991b1b",dot:"#ef4444",text:"#fca5a5",label:"PRZETERMINOWANY"},
-  unknown: {bg:"#111118",border:"#374151",dot:"#4b5563",text:"#6b7280",label:"BRAK DANYCH"},
-};
-
-// Grupy powiązanych pozycji — przy wymianie "klucza" oferuj aktualizację reszty
-const LINKED_GROUPS = [
-  {trigger:"Olej silnikowy", linked:["Filtr oleju","Filtr powietrza","Filtr kabinowy"]},
-];
-
-// Szablon HTML (przechwytujemy przy starcie, normalizujemy __PD__ do null)
-const _TPL = (() => {
-  let h = document.documentElement.outerHTML;
-  // Usuń ewentualne osadzone dane żeby szablon był zawsze czysty
-  h = h.replace(/window\.__PD__=\{[^<]*\}/, 'window.__PD__=null');
-  return h;
-})();
-
-// ── STATE ──────────────────────────────────────────────────────────────────────
-let _lsKey = 'autoserwis_main'; // każdy wyeksportowany plik ma własny klucz → izolacja
-let S = {
-  cars: [],
-  activeCar: null,
-  appName: "AUTOSERWIS",
-  expandedItem: null,
-  addEntryFor: null,
-  editIntervalFor: null,
-  editEntry: null,  // {itemId, entryId}
-  showAddCar: false,
-  showAddItem: false,
-  editCarId: null,
-  importData: null,
-  linkedModal: null,  // {carId, entry, items:[{id,name,checked}]}
-  // form drafts (not persisted)
-  draftAddCar: {name:"", plate:""},
-  draftAddItem: {name:"", km:"", mo:""},
-  draftAddEntry: {date:"", km:"", notes:""},
-  draftEditEntry: {date:"", km:"", notes:""},
-  draftInterval: {km:"", mo:""},
-};
-
-// ── HELPERS ────────────────────────────────────────────────────────────────────
-const uid = () => Math.random().toString(36).slice(2,9);
-const today = () => new Date().toISOString().slice(0,10);
-const fmtKm = n => n!=null ? Number(n).toLocaleString('pl-PL') : '—';
-const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-
-function newCar(name, plate) {
-  return {id:uid(), name, plate, currentKm:0,
-    items: DEFAULT_ITEMS.map(t => ({id:uid(), name:t.name, kmInterval:t.km, monthInterval:t.mo, history:[]}))};
-}
-
-function getStatus(item, currentKm) {
-  const h = [...item.history].sort((a,b) => new Date(b.date)-new Date(a.date));
-  const latest = h[0];
-  if (!latest) return {status:"unknown", nextKm:null, nextDate:null, kmLeft:null, daysLeft:null};
-  let kmLeft=null, daysLeft=null, nextKm=null, nextDate=null;
-  if (item.kmInterval && latest.km!=null) { nextKm=Number(latest.km)+item.kmInterval; kmLeft=nextKm-currentKm; }
-  if (item.monthInterval && latest.date) {
-    const d=new Date(latest.date); d.setMonth(d.getMonth()+item.monthInterval);
-    nextDate=d.toISOString().slice(0,10);
-    daysLeft=Math.round((d-new Date())/86400000);
-  }
-  const overdue=(kmLeft!=null&&kmLeft<0)||(daysLeft!=null&&daysLeft<0);
-  const warning=!overdue&&((kmLeft!=null&&kmLeft<1500)||(daysLeft!=null&&daysLeft<30));
-  return {status:overdue?"overdue":warning?"warning":"ok", nextKm, nextDate, kmLeft, daysLeft};
-}
-
-// ── PERSISTENCE ────────────────────────────────────────────────────────────────
-function loadState() {
-  // Każdy eksport ma unikalny instanceId → własny klucz localStorage → izolacja między plikami
-  const instanceId = window.__PD__?.instanceId || 'main';
-  _lsKey = `autoserwis_${instanceId}`;
-
-  // 1. Sprawdź localStorage tego konkretnego pliku (już wcześniej otwierany)
-  try {
-    const d = JSON.parse(localStorage.getItem(_lsKey)||'null');
-    if (d && Array.isArray(d.cars) && d._seeded) {
-      S.cars = d.cars; S.activeCar = d.cars[0]?.id || null;
-      if (d.appName) S.appName = d.appName;
-      return;
-    }
-  } catch(e){}
-
-  // 2. Pierwsze otwarcie — czysty eksport (fresh:true) → zupełnie pusty start
-  if (window.__PD__?.fresh) {
-    if (window.__PD__.appName) S.appName = window.__PD__.appName;
-    S.cars = []; S.activeCar = null;
-    saveState();
-    return;
-  }
-
-  // 3. Pierwsze otwarcie — eksport z danymi
-  if (window.__PD__ !== null && window.__PD__ !== undefined) {
-    S.cars = window.__PD__.cars || [];
-    S.activeCar = S.cars[0]?.id || null;
-    if (window.__PD__.appName) S.appName = window.__PD__.appName;
-    saveState();
-    return;
-  }
-
-  // 4. Plik bazowy bez żadnych danych — utwórz demo
-  const c = newCar("Moje auto","");
-  S.cars=[c]; S.activeCar=c.id;
-  saveState();
-}
-
-function saveState() {
-  try { localStorage.setItem(_lsKey, JSON.stringify({cars:S.cars, appName:S.appName, _seeded:true})); } catch(e){}
-}
-
-function updateAppTitle() {
-  const el = document.getElementById('app-name-display');
-  if (el) el.textContent = S.appName;
-  document.title = S.appName;
-}
-
-function editAppName() {
-  const val = prompt('Podaj nową nazwę aplikacji:', S.appName);
-  if (val === null || !val.trim()) return;
-  S.appName = val.trim().toUpperCase();
-  saveState();
-  renderAppName();
-  toast('Nazwa zmieniona!');
-}
-
-function renderAppName() {
-  const el = document.getElementById('app-name-display');
-  if (el) el.textContent = S.appName;
-  document.title = S.appName;
-}
-
-// ── TOAST ──────────────────────────────────────────────────────────────────────
-let _toastTimer;
-function toast(msg, type='ok') {
-  const el = document.getElementById('toast');
-  el.textContent = msg;
-  el.style.background = type==='err' ? '#7f1d1d' : '#14532d';
-  el.style.border = `1px solid ${type==='err'?'#dc2626':'#16a34a'}`;
-  el.classList.add('show');
-  clearTimeout(_toastTimer);
-  _toastTimer = setTimeout(() => el.classList.remove('show'), 2500);
-}
-
-// ── DATA MENU ──────────────────────────────────────────────────────────────────
-function toggleDataMenu() {
-  const m = document.getElementById('data-menu');
-  const c = document.getElementById('data-chev');
-  const open = m.classList.toggle('open');
-  c.innerHTML = open ? '<path d="M18 15l-6-6-6 6"/>' : '<path d="M6 9l6 6 6-6"/>';
-}
-function closeDataMenu() {
-  document.getElementById('data-menu').classList.remove('open');
-  document.getElementById('data-chev').innerHTML = '<path d="M6 9l6 6 6-6"/>';
-}
-document.addEventListener('click', e => { if (!e.target.closest('#data-menu-wrap')) closeDataMenu(); });
-
-// ── EXPORT / IMPORT ────────────────────────────────────────────────────────────
-function buildExportHTML(cars) {
-  const payload = {cars, appName: S.appName, instanceId: uid()};
-  return _TPL.replace('window.__PD__=null', 'window.__PD__=' + JSON.stringify(payload));
-}
-
-// ── ZAPIS Z WYBOREM MIEJSCA ────────────────────────────────────────────────────
-let _saveHandle = null;
-
-function fallbackDownload(blob, name) {
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url; a.download=name; a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
-async function saveWithPicker(blob, suggestedName) {
-  if (window.showSaveFilePicker) {
-    try {
-      const handle = await window.showSaveFilePicker({
-        suggestedName,
-        types:[{description:'Plik HTML',accept:{'text/html':['.html']}}],
-        startIn:'downloads'
-      });
-      const w = await handle.createWritable();
-      await w.write(blob); await w.close();
-      return handle;
-    } catch(e) {
-      if (e.name === 'AbortError') return null;
-      fallbackDownload(blob, suggestedName); return true;
-    }
-  }
-  fallbackDownload(blob, suggestedName); return true;
-}
-
-async function doQuickSave() {
-  const blob = new Blob([buildExportHTML(S.cars)], {type:'text/html;charset=utf-8'});
-  const name = (S.appName.toLowerCase().replace(/\s+/g,'-')||'autoserwis')+'.html';
-  if (_saveHandle) {
-    try {
-      const w = await _saveHandle.createWritable();
-      await w.write(blob); await w.close();
-      toast('✓ Zapisano!'); return;
-    } catch(e) { _saveHandle = null; }
-  }
-  const h = await saveWithPicker(blob, name);
-  if (h && h !== true) _saveHandle = h;
-  if (h) toast('✓ Zapisano!');
-}
-
-function doExportFull() {
-  closeDataMenu();
-  const blob = new Blob([buildExportHTML(S.cars)], {type:'text/html;charset=utf-8'});
-  const name = (S.appName.toLowerCase().replace(/\s+/g,'-')||'kopia')+'-'+today()+'.html';
-  saveWithPicker(blob, name).then(h => { if(h) toast('Pobrano kopię z danymi!'); });
-}
-
-function doExportTemplate() {
-  closeDataMenu();
-  const payload = JSON.stringify({fresh:true, instanceId:uid(), appName:S.appName});
-  const cleanHTML = _TPL.replace('window.__PD__=null', 'window.__PD__='+payload);
-  const blob = new Blob([cleanHTML], {type:'text/html;charset=utf-8'});
-  const name = (S.appName.toLowerCase().replace(/\s+/g,'-')||'autoserwis')+'-czysty-'+today()+'.html';
-  saveWithPicker(blob, name).then(h => { if(h) toast('Pobrano czystą aplikację bez danych!'); });
-}
-
-// ── PDF (podgląd wydruku) ──────────────────────────────────────────────────────
-function doPrintPDF() {
-  const appName = S.appName;
-  const now = new Date().toLocaleDateString('pl-PL',{day:'2-digit',month:'long',year:'numeric'});
-  const sColor={ok:'#16a34a',warning:'#d97706',overdue:'#dc2626',unknown:'#9ca3af'};
-  const sLabel={ok:'OK',warning:'Wkrótce',overdue:'Przeterminowany',unknown:'Brak danych'};
-  const carBlocks = S.cars.map(car=>{
-    const iBlocks = car.items.map(item=>{
-      const {status,nextKm,nextDate}=getStatus(item,car.currentKm);
-      const sorted=[...item.history].sort((a,b)=>new Date(b.date)-new Date(a.date));
-      const latest=sorted[0];
-      const rows=sorted.map(h=>`<tr><td>${h.date}</td><td style="text-align:right">${h.km!=null?Number(h.km).toLocaleString('pl-PL')+' km':'—'}</td><td style="color:#555;font-style:italic">${h.notes||''}</td></tr>`).join('');
-      return `<div style="border:1px solid #e5e7eb;border-radius:6px;overflow:hidden;margin-bottom:9px;page-break-inside:avoid">
-        <div style="background:#f9fafb;padding:7px 11px;border-bottom:1px solid #e5e7eb;display:flex;flex-wrap:wrap;align-items:center;gap:8px">
-          <div style="width:8px;height:8px;border-radius:50%;background:${sColor[status]};flex-shrink:0"></div>
-          <strong style="font-size:13px">${item.name}</strong>
-          <span style="font-size:10px;color:#999">${item.kmInterval?'co '+Number(item.kmInterval).toLocaleString('pl-PL')+' km':''}${item.kmInterval&&item.monthInterval?' · ':''}${item.monthInterval?'co '+item.monthInterval+' mies.':''}</span>
-          <span style="margin-left:auto;font-size:11px;color:${sColor[status]};font-weight:700">${sLabel[status]}</span>
-          ${latest?`<span style="font-size:11px;color:#555">Ostatnio: <b>${latest.date}</b>${latest.km!=null?' / '+Number(latest.km).toLocaleString('pl-PL')+' km':''}</span>`:''}
-          ${nextKm||nextDate?`<span style="font-size:11px;color:#555">Następny: <b>${nextKm?Number(nextKm).toLocaleString('pl-PL')+' km':''}${nextKm&&nextDate?' / ':''}${nextDate||''}</b></span>`:''}
-        </div>
-        ${sorted.length?`<table style="width:100%;border-collapse:collapse;font-size:12px"><thead><tr style="background:#f3f4f6"><th style="padding:3px 10px;text-align:left;color:#777">Data</th><th style="padding:3px 10px;text-align:right;color:#777">Przebieg</th><th style="padding:3px 10px;text-align:left;color:#777">Uwagi</th></tr></thead><tbody>${rows}</tbody></table>`:'<div style="padding:6px 11px;font-size:11px;color:#aaa;font-style:italic">Brak wpisów</div>'}
-      </div>`;
-    }).join('');
-    return `<div style="margin-bottom:22px"><div style="display:flex;align-items:baseline;gap:10px;border-bottom:2px solid #111;padding-bottom:7px;margin-bottom:10px"><h2 style="margin:0;font-size:18px">${car.name}</h2>${car.plate?`<span style="font-size:11px;border:1px solid #ccc;border-radius:3px;padding:1px 7px;letter-spacing:2px;color:#555">${car.plate}</span>`:''}<span style="margin-left:auto;font-size:11px;color:#555">Przebieg: <b>${Number(car.currentKm).toLocaleString('pl-PL')} km</b></span></div>${iBlocks}</div>`;
-  }).join('');
-  const w=window.open('','_blank');
-  if(w){w.document.write(`<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>${appName} – Raport</title><style>body{font-family:'Segoe UI',Arial,sans-serif;color:#111;background:#fff;padding:24px 32px;max-width:860px;margin:0 auto}h1{margin:0;font-size:20px;font-weight:900}@media print{@page{margin:15mm}}</style></head><body><div style="display:flex;align-items:baseline;gap:10px;margin-bottom:4px"><h1>🚗 ${appName}</h1><span style="color:#aaa;font-size:11px">Historia przeglądów</span><span style="margin-left:auto;font-size:11px;color:#aaa">${now}</span></div><hr style="border:none;border-top:1px solid #e5e7eb;margin:12px 0 20px">${carBlocks}<script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close();}
-}
-
-document.getElementById('file-input').addEventListener('change', function(e) {
-  const file = e.target.files[0]; if(!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    try {
-      const text = ev.target.result;
-      // Extract embedded data from __PD__ script tag
-      const match = text.match(/window\.__PD__=(\{[\s\S]*?\})\s*<\/script>/);
-      if (!match) throw new Error('Brak danych w pliku');
-      const payload = JSON.parse(match[1]);
-      if (!payload.cars || !Array.isArray(payload.cars)) throw new Error('Nieprawidłowa struktura');
-      S.importData = {cars: payload.cars, appName: payload.appName || null};
-      render();
-    } catch(err) { toast('Błąd: nie można odczytać pliku AutoSerwis','err'); }
-  };
-  reader.readAsText(file);
-  this.value='';
-});
-
-function doImport(mode) {
-  const incoming = S.importData.cars.map(c => ({
-    ...c, id:uid(),
-    items: (c.items||[]).map(i => ({...i, id:uid(), history:(i.history||[]).map(h=>({...h,id:uid()}))}))
-  }));
-  if (mode==='replace') {
-    S.cars = incoming;
-    S.activeCar = incoming[0]?.id || null;
-    if (S.importData.appName) { S.appName = S.importData.appName; updateAppTitle(); }
-    toast(`Wczytano ${incoming.length} aut (zastąpiono dane)`);
-  } else {
-    S.cars = [...S.cars, ...incoming];
-    S.activeCar = incoming[0]?.id || S.activeCar;
-    toast(`Dodano ${incoming.length} aut do istniejących`);
-  }
-  S.importData = null;
-  saveState(); render();
-}
-
-// ── RAPORT HTML ────────────────────────────────────────────────────────────────
-function doPDF() {
-  const now = new Date().toLocaleDateString('pl-PL',{day:'2-digit',month:'long',year:'numeric'});
-  const stamp = today();
-  const filename = `raport-${stamp}.html`;
-  const appName = S.appName;
-  const sLabel={ok:'OK',warning:'Wkrótce',overdue:'Przeterminowany',unknown:'Brak danych'};
-  const sColor={ok:'#16a34a',warning:'#d97706',overdue:'#dc2626',unknown:'#9ca3af'};
-  const carBlocks = S.cars.map(car => {
-    const itemBlocks = car.items.map(item => {
-      const {status,nextKm,nextDate} = getStatus(item, car.currentKm);
-      const sorted = [...item.history].sort((a,b)=>new Date(b.date)-new Date(a.date));
-      const latest = sorted[0];
-      const rows = sorted.map(h=>`<tr><td>${h.date}</td><td style="text-align:right">${h.km!=null?Number(h.km).toLocaleString('pl-PL')+' km':'—'}</td><td style="color:#6b7280;font-style:italic">${h.notes||''}</td></tr>`).join('');
-      return `<div class="icard"><div class="ihead"><div class="iname"><div class="dot" style="background:${sColor[status]}"></div><strong>${item.name}</strong><span class="hint">${item.kmInterval?'co '+Number(item.kmInterval).toLocaleString('pl-PL')+' km':''}${item.kmInterval&&item.monthInterval?' · ':''}${item.monthInterval?'co '+item.monthInterval+' mies.':''}</span></div><div class="imeta"><span style="color:${sColor[status]};font-weight:700">${sLabel[status]}</span>${latest?` <span>Ostatnio: <b>${latest.date}</b>${latest.km!=null?' / '+Number(latest.km).toLocaleString('pl-PL')+' km':''}</span>`:''}${nextKm||nextDate?` <span>Następny: <b>${nextKm?Number(nextKm).toLocaleString('pl-PL')+' km':''}${nextKm&&nextDate?' / ':''}${nextDate||''}</b></span>`:''}</div></div>${sorted.length?`<table><thead><tr><th>Data</th><th style="text-align:right">Przebieg</th><th>Uwagi</th></tr></thead><tbody>${rows}</tbody></table>`:'<div class="empty-hist">Brak wpisów serwisowych</div>'}</div>`;
-    }).join('');
-    return `<div class="car-block"><div class="car-head"><h2>${car.name}</h2>${car.plate?`<span class="plate">${car.plate}</span>`:''}<span class="km-info">Przebieg: <b>${Number(car.currentKm).toLocaleString('pl-PL')} km</b></span></div>${itemBlocks}</div>`;
-  }).join('');
-
-  const reportHTML = `<!DOCTYPE html><html lang="pl"><head><meta charset="UTF-8"><title>AutoSerwis – Raport ${stamp}</title><style>
-    body{font-family:'Segoe UI',Arial,sans-serif;color:#111;background:#fff;padding:24px 32px;max-width:880px;margin:0 auto;font-size:13px}
-    h1{font-size:22px;font-weight:900;margin:0}
-    h2{font-size:18px;font-weight:900;margin:0}
-    .header{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
-    .sub{color:#9ca3af;font-size:11px}
-    hr{border:none;border-top:1px solid #e5e7eb;margin:14px 0 22px}
-    .car-block{margin-bottom:28px;page-break-after:always}
-    .car-head{display:flex;align-items:baseline;gap:12px;margin-bottom:12px;padding-bottom:8px;border-bottom:2px solid #111}
-    .plate{font-size:11px;border:1px solid #d1d5db;border-radius:3px;padding:1px 8px;letter-spacing:2px;color:#374151}
-    .km-info{margin-left:auto;font-size:11px;color:#374151}
-    .icard{border:1px solid #e5e7eb;border-radius:7px;overflow:hidden;margin-bottom:10px;page-break-inside:avoid}
-    .ihead{background:#f9fafb;padding:8px 12px;border-bottom:1px solid #e5e7eb}
-    .iname{display:flex;align-items:center;gap:8px;margin-bottom:3px}
-    .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-    .hint{font-size:10px;color:#9ca3af}
-    .imeta{display:flex;gap:14px;font-size:11px;flex-wrap:wrap;padding-left:16px}
-    table{width:100%;border-collapse:collapse}
-    th{padding:4px 10px;text-align:left;color:#6b7280;font-size:11px;font-weight:600;background:#f3f4f6}
-    td{padding:4px 10px;font-size:12px;border-top:1px solid #f3f4f6}
-    .empty-hist{padding:7px 12px;font-size:11px;color:#9ca3af;font-style:italic}
-    @media print{body{padding:10px}.car-block{page-break-after:always}}
-  </style></head><body>
-  <div class="header"><h1>🚗 ${appName}</h1><span class="sub">Historia przeglądów</span><span style="margin-left:auto;font-size:11px;color:#9ca3af">${now}</span></div>
-  <hr>${carBlocks}</body></html>`;
-
-  const blob = new Blob([reportHTML], {type:'text/html;charset=utf-8'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a'); a.href=url; a.download=filename; a.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-  toast('Pobrano raport!');
-}
-
-// ── RENDER ─────────────────────────────────────────────────────────────────────
-function render() {
-  const root = document.getElementById('root');
-  const car = S.cars.find(c => c.id === S.activeCar);
-  let html = '';
-
-  // IMPORT MODAL
-  if (S.importData) {
-    const d = S.importData;
-    html += `<div class="overlay fade" onclick="if(event.target===this){S.importData=null;render()}">
-      <div class="modal" onclick="event.stopPropagation()">
-        <div class="modal-title">${d.clean?'📋 Wczytaj szablon':'📂 Wczytaj kopię'}</div>
-        <div class="modal-sub">Znaleziono <strong style="color:#e5e7eb">${d.cars.length} ${d.cars.length===1?'auto':'aut'}</strong>: ${esc(d.cars.map(c=>c.name).join(', '))}.<br>${d.clean?'<span style="color:#60a5fa">Czysty szablon — brak historii.</span>':'<span style="color:#86efac">Plik zawiera pełną historię serwisów.</span>'}</div>
-        <div style="font-size:11px;color:#374151;letter-spacing:.5px;margin-bottom:10px">JAK WCZYTAĆ?</div>
-        <button class="import-opt" style="background:rgba(96,165,250,.1);border:1px solid #1e3a5f" onclick="doImport('add')"><div style="font-size:13px;font-weight:600;color:#60a5fa;margin-bottom:2px">➕ Dodaj do istniejących</div><div style="font-size:11px;color:#4b5563">Zachowaj obecne auta i dołącz nowe</div></button>
-        <button class="import-opt" style="background:rgba(239,68,68,.08);border:1px solid #7f1d1d" onclick="doImport('replace')"><div style="font-size:13px;font-weight:600;color:#ef4444;margin-bottom:2px">🔄 Zastąp wszystkie dane</div><div style="font-size:11px;color:#4b5563">Usuń obecne i wczytaj z pliku</div></button>
-        <button class="btn btn-ghost btn-sm" onclick="S.importData=null;render()" style="margin-top:4px">Anuluj</button>
-      </div>
-    </div>`;
-  }
-
-  // LINKED FILTERS MODAL
-  if (S.linkedModal) {
-    const lm = S.linkedModal;
-    const checkedCount = lm.items.filter(i=>i.checked).length;
-    html += `<div class="overlay fade">
-      <div class="modal" onclick="event.stopPropagation()">
-        <div class="modal-title">🔗 Wymiana powiązanych filtrów</div>
-        <div class="modal-sub">Zapisano wymianę oleju silnikowego.<br>Czy przy tej okazji wymieniono też następujące filtry?<br><span style="color:#f59e0b;font-size:11px">Data: ${lm.entry.date}${lm.entry.km!=null?' · '+fmtKm(lm.entry.km)+' km':''}</span></div>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px">
-          ${lm.items.map(i => `
-            <label style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:8px;cursor:pointer;background:${i.checked?'rgba(245,158,11,.1)':'rgba(255,255,255,.03)'};border:1px solid ${i.checked?'#92400e':'#27272d'};transition:all .15s" onclick="toggleLinkedItem('${i.id}')">
-              <div style="width:20px;height:20px;border-radius:5px;border:2px solid ${i.checked?'#f59e0b':'#374151'};background:${i.checked?'#f59e0b':'transparent'};display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s">
-                ${i.checked?'<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>':''}
-              </div>
-              <span style="font-size:14px;color:#e5e7eb;font-weight:500">${esc(i.name)}</span>
-            </label>`).join('')}
-        </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button class="btn btn-amber" onclick="saveLinkedEntries()" ${checkedCount===0?'disabled style="opacity:.4"':''}>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-            Zapisz zaznaczone (${checkedCount})
-          </button>
-          <button class="btn btn-ghost" onclick="skipLinkedEntries()">Pomiń</button>
-        </div>
-      </div>
-    </div>`;
-  }
-
-  // TABS
-  html += '<div id="tabs">';
-  S.cars.forEach(c => {
-    const cnt = c.items.reduce((a,i)=>{const s=getStatus(i,c.currentKm).status;if(s==='overdue')a.o++;else if(s==='warning')a.w++;return a;},{o:0,w:0});
-    const active = c.id===S.activeCar;
-    html += `<button class="tab${active?' active':''}" onclick="setActiveCar('${c.id}')">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 01-2-2v-4l3-6h16l3 6v4a2 2 0 01-2 2h-2M7 17h10M9 17a2 2 0 100 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4z"/></svg>
-      ${esc(c.name)}
-      ${c.plate?`<span style="font-size:10px;color:#374151;letter-spacing:1px">${esc(c.plate)}</span>`:''}
-      ${cnt.o>0?`<span class="badge badge-red">${cnt.o}</span>`:''}
-      ${!cnt.o&&cnt.w>0?`<span class="badge badge-amber">${cnt.w}</span>`:''}
-    </button>`;
-  });
-  html += `<button class="tab" onclick="S.showAddCar=!S.showAddCar;render()">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
-    Dodaj auto
-  </button></div>`;
-
-  // ADD CAR FORM
-  if (S.showAddCar) {
-    html += `<div class="panel-form fade">
-      <div class="panel-form-title">NOWE AUTO</div>
-      <div class="form-row">
-        ${fld('NAZWA AUTA','text',S.draftAddCar.name,"S.draftAddCar.name=this.value",'np. BMW E46',180)}
-        ${fld('REJESTRACJA','text',S.draftAddCar.plate,"S.draftAddCar.plate=this.value",'np. DW 12345',140)}
-        <div class="form-btns">
-          <button class="btn btn-amber" onclick="addCar()">DODAJ</button>
-          <button class="btn btn-ghost" onclick="S.showAddCar=false;render()">Anuluj</button>
-        </div>
-      </div>
-    </div>`;
-  }
-
-  // CAR PANEL
-  if (car) {
-    const counts = car.items.reduce((a,i)=>{a[getStatus(i,car.currentKm).status]++;return a;},{ok:0,warning:0,overdue:0,unknown:0});
-
-    // CAR HEADER
-    html += `<div id="car-header" class="card">`;
-    if (S.editCarId === car.id) {
-      html += `<div class="form-row" style="padding:13px 16px">
-        ${fld('NAZWA','text',car.name,`updateCarField('${car.id}','name',this.value)`,'',180)}
-        ${fld('REJESTRACJA','text',car.plate,`updateCarField('${car.id}','plate',this.value)`,'',130)}
-        <div class="form-btns"><button class="btn btn-green" onclick="S.editCarId=null;render()">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Gotowe</button></div>
-      </div>`;
-    } else {
-      html += `<div style="padding:13px 16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap">
-            <span class="car-name">${esc(car.name)}</span>
-            ${car.plate?`<span class="plate">${esc(car.plate)}</span>`:''}
-            <button style="background:none;border:none;color:#27272d;padding:3px;display:flex" onclick="S.editCarId='${car.id}';render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
-            <button style="background:none;border:none;color:#27272d;padding:3px;display:flex" onclick="deleteCar('${car.id}')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button>
-          </div>
-        </div>
-        <div class="km-wrap">
-          <span class="km-label">AKTUALNY PRZEBIEG</span>
-          <div class="km-input-row">
-            <input type="number" class="km-input" value="${car.currentKm}" onchange="updateCarField('${car.id}','currentKm',parseInt(this.value)||0);render()">
-            <span style="color:#374151;font-size:12px">km</span>
-          </div>
-        </div>
-        <div class="status-pills">
-          ${['overdue','warning','ok'].map(s=>counts[s]>0?`<div class="status-pill" style="background:${SC[s].bg};border:1px solid ${SC[s].border}"><div class="pill-num" style="color:${SC[s].dot}">${counts[s]}</div><div class="pill-lbl" style="color:${SC[s].text}">${SC[s].label}</div></div>`:'').join('')}
-        </div>
-      </div>`;
-    }
-    html += '</div>';
-
-    // ITEMS LIST
-    html += '<div id="items-list">';
-    car.items.forEach(item => {
-      const {status,nextKm,nextDate,kmLeft,daysLeft} = getStatus(item, car.currentKm);
-      const cfg = SC[status];
-      const sorted = [...item.history].sort((a,b)=>new Date(b.date)-new Date(a.date));
-      const open = S.expandedItem === item.id;
-
-      html += `<div class="item-card" style="background:${cfg.bg};border:1px solid ${cfg.border}">`;
-      // summary row
-      html += `<div class="item-row" onclick="toggleItem('${item.id}')">
-        <div class="item-dot" style="background:${cfg.dot};${status==='overdue'?'animation:pulse 1.8s infinite;box-shadow:0 0 7px '+cfg.dot:''}"></div>
-        <div style="flex:1;min-width:70px">
-          <div class="item-name">${esc(item.name)}</div>
-          <div class="item-sub">${item.kmInterval?'co '+fmtKm(item.kmInterval)+' km':''}${item.kmInterval&&item.monthInterval?' · ':''}${item.monthInterval?'co '+item.monthInterval+' mies.':''}${!item.kmInterval&&!item.monthInterval?'brak interwału':''}</div>
-        </div>
-        <div class="col-last"><div class="col-lbl">OSTATNIO</div>
-          ${sorted[0]?`<div style="font-size:12px;color:#9ca3af">${sorted[0].date}</div>${sorted[0].km!=null?`<div style="font-size:10px;color:#4b5563">${fmtKm(sorted[0].km)} km</div>`:''}`:
-          `<div style="font-size:11px;color:#27272d">—</div>`}
-        </div>
-        <div class="col-next"><div class="col-lbl">NASTĘPNY</div>
-          ${nextKm?`<div style="font-size:12px;font-weight:600;color:${cfg.text}">${fmtKm(nextKm)} km</div>`:''}
-          ${nextDate?`<div style="font-size:11px;color:${cfg.text}">${nextDate}</div>`:''}
-          ${!nextKm&&!nextDate?`<div style="font-size:11px;color:#27272d">—</div>`:''}
-        </div>
-        <div class="col-left">
-          ${kmLeft!=null?`<div style="font-size:12px;font-weight:700;color:${kmLeft<0?'#ef4444':kmLeft<1500?'#f59e0b':'#22c55e'}">${kmLeft<0?fmtKm(Math.abs(kmLeft))+' po!':fmtKm(kmLeft)+' km'}</div>`:''}
-          ${daysLeft!=null?`<div style="font-size:10px;color:${daysLeft<0?'#ef4444':daysLeft<30?'#f59e0b':'#374151'}">${daysLeft<0?Math.abs(daysLeft)+' dni po!':daysLeft+' dni'}</div>`:''}
-          ${sorted.length>0?`<div style="font-size:9px;color:#27272d;margin-top:2px">${sorted.length} wpisów</div>`:''}
-        </div>
-        <div style="color:#27272d;margin-left:4px">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${open?'M18 15l-6-6-6 6':'M6 9l6 6 6-6'}"/></svg>
-        </div>
-      </div>`;
-
-      // expanded panel
-      if (open) {
-        html += `<div class="item-expand fade" style="border-top-color:${cfg.border}">
-          <div class="toolbar">
-            <button class="btn btn-amber btn-sm" onclick="openAddEntry('${item.id}')">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Dodaj wpis
-            </button>
-            <button class="btn btn-blue btn-sm" onclick="openEditInterval('${item.id}')">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15a3 3 0 100-6 3 3 0 000 6zM19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Interwał
-            </button>
-            <div style="margin-left:auto">
-              <button class="btn btn-danger btn-sm" onclick="deleteItem('${car.id}','${item.id}')">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>Usuń
-              </button>
-            </div>
-          </div>`;
-
-        // edit interval form
-        if (S.editIntervalFor === item.id) {
-          html += `<div class="fade" style="background:#0a0a10;border:1px solid #1e3a5f;border-radius:8px;padding:11px;margin-bottom:12px">
-            <div class="form-row">
-              ${fld('CO ILE KM (puste=wyłącz)','number',S.draftInterval.km,"S.draftInterval.km=this.value",'',155)}
-              ${fld('CO ILE MIESIĘCY (puste=wyłącz)','number',S.draftInterval.mo,"S.draftInterval.mo=this.value",'',175)}
-              <div class="form-btns">
-                <button class="btn btn-amber" onclick="saveInterval('${car.id}','${item.id}')">Zapisz</button>
-                <button class="btn btn-ghost" onclick="S.editIntervalFor=null;render()">✕</button>
-              </div>
-            </div>
-          </div>`;
-        }
-
-        // add entry form
-        if (S.addEntryFor === item.id) {
-          html += `<div class="fade" style="background:#0a0a10;border:1px dashed #27272d;border-radius:8px;padding:11px;margin-bottom:12px">
-            <div class="form-row">
-              ${fld('DATA WYMIANY','date',S.draftAddEntry.date,"S.draftAddEntry.date=this.value",'',140)}
-              ${fld('PRZEBIEG (km)','number',S.draftAddEntry.km,"S.draftAddEntry.km=this.value",'opcjonalnie',125)}
-              ${fld('UWAGI / WARSZTAT / PRODUKT','text',S.draftAddEntry.notes,"S.draftAddEntry.notes=this.value",'np. Mobil 1 5W-40…',220)}
-              <div class="form-btns">
-                <button class="btn btn-green" onclick="addEntry('${car.id}','${item.id}')">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Dodaj wpis
-                </button>
-                <button class="btn btn-ghost" onclick="S.addEntryFor=null;render()">✕</button>
-              </div>
-            </div>
-          </div>`;
-        }
-
-        // timeline
-        html += '<div>';
-        if (sorted.length===0) {
-          html += `<div style="text-align:center;padding:14px 0 6px;color:#27272d;font-size:12px">Brak historii — dodaj pierwszy wpis powyżej</div>`;
-        } else {
-          html += `<div class="section-divider"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 3M3.05 11a9 9 0 101.01-4H1M1 3v4h4"/></svg>HISTORIA SERWISÓW · ${sorted.length} wpisów</div>`;
-          sorted.forEach((entry, i) => {
-            const isLatest = i===0;
-            const isEditing = S.editEntry && S.editEntry.itemId===item.id && S.editEntry.entryId===entry.id;
-            html += `<div class="tl-entry">
-              <div class="tl-line"></div>
-              <div class="tl-dot" style="background:${isLatest?'#f59e0b':'#27272d'};border:2px solid ${isLatest?'#d97706':'#1e1e26'};${isLatest?'box-shadow:0 0 7px rgba(245,158,11,.45)':''}"></div>`;
-            if (isEditing) {
-              html += `<div style="background:#0d0d14;border:1px solid #27272d;border-radius:8px;padding:10px">
-                <div class="form-row">
-                  ${fld('DATA','date',S.draftEditEntry.date,"S.draftEditEntry.date=this.value",'',140)}
-                  ${fld('PRZEBIEG (km)','number',S.draftEditEntry.km,"S.draftEditEntry.km=this.value",'',125)}
-                  ${fld('UWAGI','text',S.draftEditEntry.notes,"S.draftEditEntry.notes=this.value",'',200)}
-                  <div class="form-btns">
-                    <button class="btn btn-green" onclick="saveEditEntry('${car.id}','${item.id}','${entry.id}')">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Zapisz
-                    </button>
-                    <button class="btn btn-ghost" onclick="S.editEntry=null;render()">✕</button>
-                  </div>
-                </div>
-              </div>`;
-            } else {
-              html += `<div class="tl-row">
-                <span class="tl-date" style="color:${isLatest?'#f59e0b':'#6b7280'};font-weight:${isLatest?600:400}">${entry.date}</span>
-                ${entry.km!=null?`<span class="tl-km">${fmtKm(entry.km)} km</span>`:''}
-                ${entry.notes?`<span class="tl-notes">${esc(entry.notes)}</span>`:''}
-                ${isLatest?`<span class="tl-latest-tag">OSTATNI</span>`:''}
-                <div class="tl-btns">
-                  <button class="tl-btn" title="Edytuj" onclick="startEditEntry('${item.id}','${entry.id}','${esc(entry.date)}','${entry.km!=null?entry.km:''}','${esc(entry.notes||'')}')">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-                  </button>
-                  <button class="tl-btn" title="Usuń" onclick="deleteEntry('${car.id}','${item.id}','${entry.id}')">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
-                  </button>
-                </div>
-              </div>`;
-            }
-            html += '</div>';
-          });
-        }
-        html += '</div></div>';
-      }
-      html += '</div>';
-    });
-
-    // ADD ITEM
-    if (S.showAddItem) {
-      html += `<div class="fade" style="background:#0d0d14;border:1px solid #27272d;border-radius:10px;padding:13px">
-        <div class="panel-form-title">NOWA POZYCJA SERWISOWA</div>
-        <div class="form-row">
-          ${fld('NAZWA','text',S.draftAddItem.name,"S.draftAddItem.name=this.value",'np. Łańcuch rozrządu',195)}
-          ${fld('CO ILE KM','number',S.draftAddItem.km,"S.draftAddItem.km=this.value",'np. 60000',120)}
-          ${fld('CO ILE MIESIĘCY','number',S.draftAddItem.mo,"S.draftAddItem.mo=this.value",'np. 36',130)}
-          <div class="form-btns">
-            <button class="btn btn-amber" onclick="addItem('${car.id}')">DODAJ</button>
-            <button class="btn btn-ghost" onclick="S.showAddItem=false;render()">Anuluj</button>
-          </div>
-        </div>
-      </div>`;
-    } else {
-      html += `<button style="width:100%;padding:10px;border-radius:9px;background:transparent;border:1px dashed #1a1a20;color:#27272d;font-size:12px;display:flex;align-items:center;justify-content:center;gap:6px;margin-top:2px" onclick="S.showAddItem=true;render()">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Dodaj pozycję serwisową
-      </button>`;
-    }
-    html += '</div>';
-  } else if (!S.showAddCar) {
-    html += `<div class="empty"><div class="empty-icon">🚗</div><div class="empty-txt">Dodaj pierwsze auto</div></div>`;
-  }
-
-  // LEGEND
-  html += '<div id="legend">';
-  Object.entries(SC).forEach(([k,v]) => {
-    html += `<div class="leg-item"><div class="leg-dot" style="background:${v.dot}"></div>${v.label}</div>`;
-  });
-  html += '<div class="leg-item">· dane zapisywane lokalnie · eksport jako .html</div></div>';
-
-  root.innerHTML = html;
-}
-
-// ── FIELD HELPER ───────────────────────────────────────────────────────────────
-function fld(label, type, value, onchange, placeholder, width) {
-  return `<div class="fld"><label>${label}</label><input type="${type}" value="${esc(value??'')}" oninput="${onchange}" placeholder="${esc(placeholder)}" style="width:${width}px"></div>`;
-}
-
-// ── ACTIONS ────────────────────────────────────────────────────────────────────
-function setActiveCar(id) {
-  S.activeCar=id; S.expandedItem=null; S.addEntryFor=null;
-  S.editIntervalFor=null; S.editEntry=null; S.showAddItem=false; S.editCarId=null;
-  render();
-}
-
-function addCar() {
-  if (!S.draftAddCar.name.trim()) return;
-  const c = newCar(S.draftAddCar.name.trim(), S.draftAddCar.plate.trim());
-  S.cars.push(c); S.activeCar=c.id;
-  S.draftAddCar={name:'',plate:''}; S.showAddCar=false;
-  saveState(); render(); toast('Auto dodane!');
-}
-
-function deleteCar(id) {
-  if (!confirm('Usunąć to auto i całą historię?')) return;
-  S.cars = S.cars.filter(c=>c.id!==id);
-  S.activeCar = S.cars[0]?.id || null;
-  saveState(); render(); toast('Auto usunięte.');
-}
-
-function updateCarField(carId, field, value) {
-  const car = S.cars.find(c=>c.id===carId);
-  if (car) { car[field]=value; saveState(); }
-}
-
-function toggleItem(itemId) {
-  if (S.expandedItem===itemId) {
-    S.expandedItem=null; S.addEntryFor=null; S.editIntervalFor=null; S.editEntry=null;
-  } else {
-    S.expandedItem=itemId; S.addEntryFor=null; S.editIntervalFor=null; S.editEntry=null;
-  }
-  render();
-}
-
-function openAddEntry(itemId) {
-  S.addEntryFor = S.addEntryFor===itemId ? null : itemId;
-  S.editIntervalFor=null; S.editEntry=null;
-  S.draftAddEntry={date:today(), km:'', notes:''};
-  render();
-}
-
-function openEditInterval(itemId) {
-  S.editIntervalFor = S.editIntervalFor===itemId ? null : itemId;
-  S.addEntryFor=null; S.editEntry=null;
-  const car = S.cars.find(c=>c.id===S.activeCar);
-  const item = car?.items.find(i=>i.id===itemId);
-  S.draftInterval={km:item?.kmInterval??'', mo:item?.monthInterval??''};
-  render();
-}
-
-function addEntry(carId, itemId) {
-  if (!S.draftAddEntry.date) return;
-  const car = S.cars.find(c=>c.id===carId);
-  const item = car?.items.find(i=>i.id===itemId);
-  if (!item) return;
-  const entry = {id:uid(), date:S.draftAddEntry.date, km:S.draftAddEntry.km!==''?parseInt(S.draftAddEntry.km):null, notes:S.draftAddEntry.notes};
-  item.history.push(entry);
-  S.addEntryFor=null;
-
-  // Sprawdź czy to pozycja z grupy powiązanej (np. olej)
-  const group = LINKED_GROUPS.find(g => g.trigger === item.name);
-  if (group) {
-    const linkedItems = car.items.filter(i => group.linked.includes(i.name) && i.id !== itemId);
-    if (linkedItems.length > 0) {
-      S.linkedModal = {
-        carId,
-        entry: {...entry, id: null}, // nowe id dla każdego
-        items: linkedItems.map(i => ({id:i.id, name:i.name, checked:true}))
-      };
-      saveState(); render();
-      return;
-    }
-  }
-  saveState(); render(); toast('Wpis dodany!');
-}
-
-function toggleLinkedItem(itemId) {
-  if (!S.linkedModal) return;
-  S.linkedModal.items = S.linkedModal.items.map(i => i.id===itemId ? {...i, checked:!i.checked} : i);
-  render();
-}
-
-function saveLinkedEntries() {
-  if (!S.linkedModal) return;
-  const car = S.cars.find(c=>c.id===S.linkedModal.carId);
-  if (!car) return;
-  S.linkedModal.items.filter(i=>i.checked).forEach(li => {
-    const item = car.items.find(i=>i.id===li.id);
-    if (item) item.history.push({...S.linkedModal.entry, id:uid()});
-  });
-  const saved = S.linkedModal.items.filter(i=>i.checked).length;
-  S.linkedModal = null;
-  saveState(); render();
-  toast(`Wpis dodany + ${saved} filtr${saved===1?'':'y/ów'} zaktualizowano!`);
-}
-
-function skipLinkedEntries() {
-  S.linkedModal = null;
-  saveState(); render(); toast('Wpis dodany!');
-}
-
-function startEditEntry(itemId, entryId, date, km, notes) {
-  S.editEntry={itemId, entryId};
-  S.draftEditEntry={date, km:km||'', notes:notes||''};
-  S.addEntryFor=null;
-  render();
-}
-
-function saveEditEntry(carId, itemId, entryId) {
-  const car = S.cars.find(c=>c.id===carId);
-  const item = car?.items.find(i=>i.id===itemId);
-  const entry = item?.history.find(h=>h.id===entryId);
-  if (!entry) return;
-  entry.date=S.draftEditEntry.date;
-  entry.km=S.draftEditEntry.km!==''?parseInt(S.draftEditEntry.km):null;
-  entry.notes=S.draftEditEntry.notes;
-  S.editEntry=null;
-  saveState(); render(); toast('Wpis zaktualizowany!');
-}
-
-function deleteEntry(carId, itemId, entryId) {
-  const car = S.cars.find(c=>c.id===carId);
-  const item = car?.items.find(i=>i.id===itemId);
-  if (!item) return;
-  item.history = item.history.filter(h=>h.id!==entryId);
-  saveState(); render(); toast('Wpis usunięty.');
-}
-
-function saveInterval(carId, itemId) {
-  const car = S.cars.find(c=>c.id===carId);
-  const item = car?.items.find(i=>i.id===itemId);
-  if (!item) return;
-  item.kmInterval = S.draftInterval.km!==''?parseInt(S.draftInterval.km):null;
-  item.monthInterval = S.draftInterval.mo!==''?parseInt(S.draftInterval.mo):null;
-  S.editIntervalFor=null;
-  saveState(); render(); toast('Interwał zaktualizowany!');
-}
-
-function addItem(carId) {
-  if (!S.draftAddItem.name.trim()) return;
-  const car = S.cars.find(c=>c.id===carId);
-  if (!car) return;
-  car.items.push({id:uid(), name:S.draftAddItem.name.trim(), kmInterval:S.draftAddItem.km?parseInt(S.draftAddItem.km):null, monthInterval:S.draftAddItem.mo?parseInt(S.draftAddItem.mo):null, history:[]});
-  S.draftAddItem={name:'',km:'',mo:''}; S.showAddItem=false;
-  saveState(); render(); toast('Pozycja dodana!');
-}
-
-function deleteItem(carId, itemId) {
-  if (!confirm('Usunąć tę pozycję i całą historię?')) return;
-  const car = S.cars.find(c=>c.id===carId);
-  if (car) car.items = car.items.filter(i=>i.id!==itemId);
-  S.expandedItem=null;
-  saveState(); render(); toast('Pozycja usunięta.');
-}
-
-// ── SERVICE WORKER REGISTRATION ────────────────────────────────────────────────
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => {
-        console.log('[PWA] Service Worker zarejestrowany:', reg.scope);
-        // Check for updates
-        reg.onupdatefound = () => {
-          const newWorker = reg.installing;
-          newWorker.onstatechange = () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              toast('Dostępna nowa wersja! Odśwież stronę.');
-            }
-          };
-        };
-      })
-      .catch(err => console.log('[PWA] Service Worker błąd:', err));
-  });
-}
-
-// ── INIT ───────────────────────────────────────────────────────────────────────
-loadState();
-updateAppTitle();
-render();
+loadState();updateAppTitle();render();
 </script>
 </body>
 </html>
