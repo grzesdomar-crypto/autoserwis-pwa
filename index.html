@@ -15,7 +15,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Barlow+Condensed:wght@700;900&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body{background:#0a0a0e;color:#e5e7eb;font-family:'DM Mono','Courier New',monospace;min-height:100vh;padding-bottom:40px}
+body{background-color:#0a0a0e;background-image:radial-gradient(ellipse at 25% 15%,rgba(146,84,26,.12),transparent 55%),radial-gradient(ellipse at 80% 75%,rgba(120,68,20,.10),transparent 55%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012 0.018' numOctaves='5' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.45  0 0 0 0 0.28  0 0 0 0 0.12  0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-attachment:fixed,fixed,fixed;background-size:cover,cover,420px 420px;color:#e5e7eb;font-family:'DM Mono','Courier New',monospace;min-height:100vh;padding-bottom:40px}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:#222;border-radius:2px}
 button{font-family:inherit;cursor:pointer;transition:opacity .15s}button:active{opacity:.65}
 input,select,textarea{font-family:inherit;outline:none}
@@ -48,11 +48,23 @@ textarea{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7
 .view-toggle button{flex:1;padding:9px 8px;border:none;background:transparent;color:#4b5563;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:4px;transition:all .15s;min-width:60px}
 .view-toggle button.active{background:rgba(245,158,11,.1);color:#f59e0b}
 .view-toggle button:not(:last-child){border-right:1px solid #1a1a22}
-#car-header{margin:0 14px 10px;padding:13px 16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+#car-header{margin:0 14px 10px}
+.ch-row-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.ch-name-block{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.ch-alert-badge{display:flex;align-items:center;gap:5px;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;white-space:nowrap;flex-shrink:0}
+.ch-alert-badge.red{background:rgba(239,68,68,.15);color:#f87171;border:1px solid #7f1d1d}
+.ch-alert-badge.amber{background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid #78350f}
+.ch-row-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;min-height:20px}
+.ch-vin{font-size:11px;color:#9ca3af;letter-spacing:.5px}
+.ch-vin b{color:#d1d5db;font-family:'DM Mono',monospace;letter-spacing:1.5px;font-weight:500}
+.ch-icon-btns{display:flex;gap:4px}
+.ch-icon-btn{background:none;border:none;color:#8b93a1;padding:4px;display:flex;border-radius:5px}
+.ch-row-bottom{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:13px;flex-wrap:wrap}
+.ch-km-unit{color:#8b93a1;font-size:12px}
 .car-name{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;letter-spacing:.5px}
 .plate{background:#111118;border:1px solid #1e1e26;border-radius:4px;padding:2px 9px;font-size:12px;color:#6b7280;letter-spacing:2px}
 .km-wrap{display:flex;flex-direction:column;gap:3px;align-items:flex-end}
-.km-label{font-size:9px;color:#374151;letter-spacing:.7px}
+.km-label{font-size:10px;color:#8b93a1;letter-spacing:.7px}
 .km-input-row{display:flex;align-items:center;gap:5px}
 .km-input{background:#0a0a0e;border:1px solid #f59e0b;border-radius:6px;padding:6px 10px;color:#f59e0b;font-size:17px;font-weight:500;width:110px;text-align:right}
 .status-pills{display:flex;gap:6px;flex-wrap:wrap}
@@ -64,9 +76,9 @@ textarea{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7
 .item-row{padding:10px 13px;display:flex;align-items:center;gap:9px;cursor:pointer;user-select:none}
 .item-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .item-name{font-size:13px;font-weight:500;color:#e5e7eb}
-.item-sub{font-size:10px;color:#374151;margin-top:1px}
+.item-sub{font-size:11px;color:#8b93a1;margin-top:1px}
 .col-last{text-align:center;min-width:84px}.col-next{text-align:center;min-width:96px}.col-left{text-align:right;min-width:74px}
-.col-lbl{font-size:9px;color:#27272d;letter-spacing:.5px;margin-bottom:2px}
+.col-lbl{font-size:10px;color:#71717a;letter-spacing:.5px;margin-bottom:2px}
 .item-expand{border-top-width:1px;border-top-style:solid;padding:13px 14px;background:rgba(0,0,0,.38)}
 .toolbar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px;align-items:center}
 .tl-entry{position:relative;padding-left:22px;padding-bottom:12px}
@@ -75,16 +87,16 @@ textarea{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7
 .tl-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-height:26px}
 .tl-date{font-size:13px;min-width:92px}
 .tl-km{font-size:12px;color:#d1d5db;background:#16161e;border:1px solid #27272d;border-radius:4px;padding:2px 8px}
-.tl-notes{font-size:12px;color:#4b5563;font-style:italic;flex:1}
+.tl-notes{font-size:12px;color:#9ca3af;font-style:italic;flex:1}
 .tl-latest-tag{font-size:9px;background:#1f1400;border:1px solid #78350f;color:#f59e0b;border-radius:4px;padding:1px 7px;letter-spacing:.5px}
 .tl-btns{display:flex;gap:3px;margin-left:auto}
-.tl-btn{background:none;border:none;color:#374151;padding:3px 4px;border-radius:4px;display:flex}
+.tl-btn{background:none;border:none;color:#8b93a1;padding:3px 4px;border-radius:4px;display:flex}
 .form-row{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
 .fld{display:flex;flex-direction:column;gap:4px}
-.fld label{font-size:10px;color:#4b5563;letter-spacing:.6px;font-weight:500}
+.fld label{font-size:11px;color:#9ca3af;letter-spacing:.6px;font-weight:500}
 .fld input,.fld select,.fld textarea{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7px 10px;color:#e5e7eb;font-size:13px}
 .form-btns{display:flex;gap:6px;margin-top:14px}
-.section-divider{font-size:10px;color:#374151;letter-spacing:.5px;margin-bottom:9px;display:flex;align-items:center;gap:6px}
+.section-divider{font-size:11px;color:#9ca3af;letter-spacing:.5px;margin-bottom:9px;display:flex;align-items:center;gap:6px}
 .overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.78);display:flex;align-items:center;justify-content:center;padding:20px}
 .modal{background:#0d0d14;border:1px solid #27272d;border-radius:14px;padding:22px;max-width:400px;width:100%;box-shadow:0 16px 48px rgba(0,0,0,.8);max-height:90vh;overflow-y:auto}
 .modal-title{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;margin-bottom:8px}
@@ -93,14 +105,14 @@ textarea{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7
 #data-menu-wrap{position:relative}
 #data-menu{position:absolute;top:calc(100% + 6px);right:0;background:#0d0d14;border:1px solid #27272d;border-radius:10px;overflow:hidden;min-width:230px;box-shadow:0 8px 32px rgba(0,0,0,.7);z-index:100;display:none}
 #data-menu.open{display:block}
-.dm-section{padding:6px 12px 4px;font-size:10px;color:#374151;letter-spacing:.7px;border-bottom:1px solid #1a1a20;border-top:1px solid #1a1a20}
+.dm-section{padding:6px 12px 4px;font-size:10px;color:#8b93a1;letter-spacing:.7px;border-bottom:1px solid #1a1a20;border-top:1px solid #1a1a20}
 .dm-section:first-child{border-top:none}
 .dm-item{padding:10px 14px;cursor:pointer;display:flex;align-items:center;gap:11px;transition:background .12s}
 .dm-item:hover{background:rgba(255,255,255,.04)}
 .dm-item-name{font-size:13px;color:#e5e7eb;font-weight:500}
-.dm-item-sub{font-size:10px;color:#4b5563;margin-top:1px}
+.dm-item-sub{font-size:11px;color:#9ca3af;margin-top:1px}
 .panel-form{background:#0d0d14;border:1px solid #27272d;border-radius:10px;padding:13px 14px;margin:0 14px 10px}
-.panel-form-title{font-size:10px;color:#374151;letter-spacing:.5px;margin-bottom:10px}
+.panel-form-title{font-size:11px;color:#9ca3af;letter-spacing:.5px;margin-bottom:10px}
 .fuel-stats{display:grid;grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:8px;margin:0 14px 12px}
 .fuel-stat{background:#0d0d14;border:1px solid #1a1a22;border-radius:10px;padding:12px 14px}
 .fuel-stat-value{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:#e5e7eb}
@@ -121,7 +133,7 @@ textarea{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7
 .fuel-entry-details{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;padding-top:8px;border-top:1px solid #1a1a22}
 .fuel-detail{text-align:center}
 .fuel-detail-value{font-size:14px;font-weight:600;color:#e5e7eb}
-.fuel-detail-label{font-size:9px;color:#374151;letter-spacing:.3px}
+.fuel-detail-label{font-size:10px;color:#8b93a1;letter-spacing:.3px}
 .fuel-consumption{font-size:14px;font-weight:700;padding:4px 10px;border-radius:6px;margin-left:auto}
 .fuel-consumption.good{background:rgba(34,197,94,.15);color:#22c55e}
 .fuel-consumption.medium{background:rgba(251,191,36,.15);color:#fbbf24}
@@ -189,9 +201,9 @@ textarea{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7
 .chk-item.checked .chk-box{background:#7c3aed;border-color:#7c3aed}
 .chk-item.checked.cyan .chk-box{background:#0891b2;border-color:#0891b2}
 #legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;padding:18px 14px 8px;border-top:1px solid #111118;margin-top:18px}
-.leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:#27272d}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:#71717a}
 .leg-dot{width:7px;height:7px;border-radius:50%}
-.empty{text-align:center;padding:50px 0;color:#1e1e26}
+.empty{text-align:center;padding:50px 0;color:#6b7280}
 .empty-icon{font-size:38px;margin-bottom:8px}
 .empty-txt{font-family:'Barlow Condensed',sans-serif;font-size:18px}
 #toast{position:fixed;top:16px;right:16px;z-index:999;border-radius:8px;padding:9px 16px;font-size:12px;color:#e5e7eb;box-shadow:0 4px 20px rgba(0,0,0,.6);pointer-events:none;opacity:0;transition:opacity .2s;max-width:calc(100vw - 32px)}
@@ -210,11 +222,12 @@ textarea{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7
 <div id="toast"></div>
 <div id="offline-indicator">📴 Tryb offline</div>
 <div id="pwa-install-banner"><span style="font-size:13px">📲 Zainstaluj aplikację</span><button class="install-btn" onclick="installPWA()">Instaluj</button><button class="dismiss-btn" onclick="dismissInstall()">Później</button></div>
-<input type="file" id="file-input" accept=".html">
+<input type="file" id="file-input" accept=".html" style="display:none">
 <div id="topbar">
 <div class="logo"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17H3a2 2 0 01-2-2v-4l3-6h16l3 6v4a2 2 0 01-2 2h-2M7 17h10M9 17a2 2 0 100 4 2 2 0 000-4zm6 0a2 2 0 100 4 2 2 0 000-4z"/></svg><span id="app-name-display">AUTOSERWIS</span><button onclick="editAppName()" title="Zmień nazwę" style="background:none;border:none;color:#4b5563;padding:2px 4px;cursor:pointer;display:flex;margin-left:1px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button></div>
 <div style="flex:1"></div>
 <button onclick="doQuickSave()" title="Zapisz" style="background:rgba(34,197,94,.12);border:1px solid #166534;border-radius:7px;padding:6px 12px;color:#22c55e;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px;margin-right:6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"/></svg>Zapisz</button>
+<span id="save-file-indicator" style="display:none;font-size:11px;color:#9ca3af;margin-right:8px;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></span>
 <div id="data-menu-wrap"><button class="btn btn-amber" onclick="toggleDataMenu()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>Menu<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="data-chev"><path d="M6 9l6 6 6-6"/></svg></button>
 <div id="data-menu"><div class="dm-section">ZAPIS</div><div class="dm-item" onclick="doQuickSave();closeDataMenu()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2zM17 21v-8H7v8M7 3v5h8"/></svg><div><div class="dm-item-name">Zapisz</div><div class="dm-item-sub">zapisz plik</div></div></div><div class="dm-item" onclick="doExportFull()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#86efac" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg><div><div class="dm-item-name">Pobierz kopię</div><div class="dm-item-sub">.html z danymi</div></div></div><div class="dm-section">WCZYTYWANIE</div><div class="dm-item" onclick="document.getElementById('file-input').click();closeDataMenu()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg><div><div class="dm-item-name">Wczytaj plik</div><div class="dm-item-sub">.html</div></div></div><div class="dm-section">RAPORT</div><div class="dm-item" onclick="doPrintPDF();closeDataMenu()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg><div><div class="dm-item-name">Drukuj PDF</div></div></div></div></div>
 </div>
@@ -283,9 +296,15 @@ document.addEventListener('click',e=>{if(!e.target.closest('#data-menu-wrap'))cl
 
 function buildExportHTML(cars){const payload={cars,appName:S.appName,instanceId:uid()};return _TPL.replace('window.__PD__=null','window.__PD__='+JSON.stringify(payload));}
 let _saveHandle=null;
+let _saveFileName=null;
+const IDB_NAME='autoserwis_files',IDB_STORE='handles';
+function idbOpen(){return new Promise((res,rej)=>{const req=indexedDB.open(IDB_NAME,1);req.onupgradeneeded=()=>{req.result.createObjectStore(IDB_STORE);};req.onsuccess=()=>res(req.result);req.onerror=()=>rej(req.error);});}
+async function idbSetHandle(handle){try{const db=await idbOpen();await new Promise((res,rej)=>{const tx=db.transaction(IDB_STORE,'readwrite');tx.objectStore(IDB_STORE).put(handle,'lastFile');tx.oncomplete=res;tx.onerror=()=>rej(tx.error);});}catch(e){}}
+async function idbGetHandle(){try{const db=await idbOpen();return await new Promise((res,rej)=>{const tx=db.transaction(IDB_STORE,'readonly');const req=tx.objectStore(IDB_STORE).get('lastFile');req.onsuccess=()=>res(req.result);req.onerror=()=>rej(req.error);});}catch(e){return undefined;}}
+function updateSaveFileDisplay(){const el=document.getElementById('save-file-indicator');if(!el)return;if(_saveFileName){el.textContent='📄 '+_saveFileName;el.style.display='inline';}else{el.style.display='none';}}
 function fallbackDownload(blob,name){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 async function saveWithPicker(blob,suggestedName){if(window.showSaveFilePicker){try{const handle=await window.showSaveFilePicker({suggestedName,types:[{description:'HTML',accept:{'text/html':['.html']}}],startIn:'downloads'});const w=await handle.createWritable();await w.write(blob);await w.close();return handle;}catch(e){if(e.name==='AbortError')return null;fallbackDownload(blob,suggestedName);return true;}}fallbackDownload(blob,suggestedName);return true;}
-async function doQuickSave(){const blob=new Blob([buildExportHTML(S.cars)],{type:'text/html;charset=utf-8'});const name=(S.appName.toLowerCase().replace(/\s+/g,'-')||'autoserwis')+'.html';if(_saveHandle){try{const w=await _saveHandle.createWritable();await w.write(blob);await w.close();toast('✓ Zapisano!');return;}catch(e){_saveHandle=null;}}const h=await saveWithPicker(blob,name);if(h&&h!==true)_saveHandle=h;if(h)toast('✓ Zapisano!');}
+async function doQuickSave(){const blob=new Blob([buildExportHTML(S.cars)],{type:'text/html;charset=utf-8'});const name=(S.appName.toLowerCase().replace(/\s+/g,'-')||'autoserwis')+'.html';if(_saveHandle){try{let perm=await _saveHandle.queryPermission({mode:'readwrite'});if(perm!=='granted')perm=await _saveHandle.requestPermission({mode:'readwrite'});if(perm==='granted'){const w=await _saveHandle.createWritable();await w.write(blob);await w.close();toast('✓ Zapisano do '+_saveFileName+'!');return;}}catch(e){_saveHandle=null;_saveFileName=null;updateSaveFileDisplay();}}const h=await saveWithPicker(blob,name);if(h&&h!==true){_saveHandle=h;_saveFileName=h.name;idbSetHandle(h);updateSaveFileDisplay();}if(h)toast('✓ Zapisano!');}
 function doExportFull(){closeDataMenu();const blob=new Blob([buildExportHTML(S.cars)],{type:'text/html;charset=utf-8'});const name=(S.appName.toLowerCase().replace(/\s+/g,'-')||'kopia')+'-'+today()+'.html';saveWithPicker(blob,name).then(h=>{if(h)toast('Pobrano!');});}
 function doPrintPDF(){const appName=S.appName;const now=new Date().toLocaleDateString('pl-PL',{day:'2-digit',month:'long',year:'numeric'});const w=window.open('','_blank');if(w){w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${appName}</title><style>body{font-family:Arial,sans-serif;padding:24px}</style></head><body><h1>🚗 ${appName}</h1><p>${now}</p><script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close();}}
 
@@ -307,7 +326,7 @@ if(S.showAddCar){html+=`<div class="panel-form fade"><div class="panel-form-titl
 if(car){const counts=car.items.reduce((a,i)=>{a[getStatus(i,car.currentKm).status]++;return a;},{ok:0,warning:0,overdue:0,unknown:0});const insAlerts=getInsuranceAlerts(car);const inspAlerts=getInspectionAlerts(car);
 html+=`<div id="car-header" class="card">`;
 if(S.editCarId===car.id){html+=`<div style="padding:13px 16px"><div class="form-row">${fld('NAZWA','text',car.name,`updateCarField('${car.id}','name',this.value)`,'',180)}${fld('REJESTRACJA','text',car.plate,`updateCarField('${car.id}','plate',this.value)`,'',120)}${fld('VIN (opcjonalnie)','text',car.vin||'',`updateCarField('${car.id}','vin',this.value.toUpperCase().trim())`,'',170)}</div><div class="form-btns"><button class="btn btn-green" onclick="S.editCarId=null;render()">OK</button></div></div>`;}
-else{html+=`<div style="padding:13px 16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center"><div style="flex:1"><div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap"><span class="car-name">${esc(car.name)}</span>${car.plate?`<span class="plate">${esc(car.plate)}</span>`:''}</div>${car.vin?`<div style="font-size:10px;color:#374151;letter-spacing:1px;margin-top:5px">VIN <span style="color:#6b7280;font-family:'DM Mono',monospace;letter-spacing:1.5px;font-size:11px">${esc(car.vin)}</span></div>`:''}<div style="display:flex;align-items:center;gap:4px;margin-top:4px"><button style="background:none;border:none;color:#27272d;padding:3px;display:flex" onclick="S.editCarId='${car.id}';render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button style="background:none;border:none;color:#27272d;padding:3px;display:flex" onclick="deleteCar('${car.id}')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button></div></div><div class="km-wrap"><span class="km-label">PRZEBIEG</span><div class="km-input-row"><input type="number" class="km-input" value="${car.currentKm}" onchange="updateCarField('${car.id}','currentKm',parseInt(this.value)||0);render()"><span style="color:#374151;font-size:12px">km</span></div></div><div class="status-pills">${['overdue','warning','ok'].map(s=>counts[s]>0?`<div class="status-pill" style="background:${SC[s].bg};border:1px solid ${SC[s].border}"><div class="pill-num" style="color:${SC[s].dot}">${counts[s]}</div><div class="pill-lbl" style="color:${SC[s].text}">${SC[s].label}</div></div>`:'').join('')}${insAlerts.length>0?`<div class="status-pill" style="background:rgba(124,58,237,.1);border:1px solid #5b21b6"><div class="pill-num" style="color:#a78bfa">${insAlerts.length}</div><div class="pill-lbl" style="color:#c4b5fd">POLISY</div></div>`:''}${inspAlerts.length>0?`<div class="status-pill" style="background:rgba(8,145,178,.1);border:1px solid #155e75"><div class="pill-num" style="color:#22d3ee">${inspAlerts.length}</div><div class="pill-lbl" style="color:#67e8f9">PRZEGLĄD</div></div>`:''}</div></div>`;}
+else{const totalAlerts=counts.overdue+counts.warning+insAlerts.length+inspAlerts.length;const alertCls=counts.overdue>0?'red':'amber';html+=`<div style="padding:14px 16px 15px"><div class="ch-row-top"><div class="ch-name-block"><span class="car-name">${esc(car.name)}</span>${car.plate?`<span class="plate">${esc(car.plate)}</span>`:''}</div>${totalAlerts>0?`<div class="ch-alert-badge ${alertCls}" title="Liczba alertów"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>${totalAlerts}</div>`:''}</div><div class="ch-row-meta">${car.vin?`<span class="ch-vin">VIN <b>${esc(car.vin)}</b></span>`:'<span></span>'}<div class="ch-icon-btns"><button class="ch-icon-btn" onclick="S.editCarId='${car.id}';render()" title="Edytuj"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="ch-icon-btn" onclick="deleteCar('${car.id}')" title="Usuń"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg></button></div></div><div class="ch-row-bottom"><div class="km-wrap"><span class="km-label">PRZEBIEG</span><div class="km-input-row"><input type="number" class="km-input" value="${car.currentKm}" onchange="updateCarField('${car.id}','currentKm',parseInt(this.value)||0);render()"><span class="ch-km-unit">km</span></div></div><div class="status-pills">${['overdue','warning','ok'].map(s=>counts[s]>0?`<div class="status-pill" style="background:${SC[s].bg};border:1px solid ${SC[s].border}"><div class="pill-num" style="color:${SC[s].dot}">${counts[s]}</div><div class="pill-lbl" style="color:${SC[s].text}">${SC[s].label}</div></div>`:'').join('')}</div></div></div>`;}
 html+='</div>';
 // View toggle
 html+=`<div class="view-toggle"><button class="${S.viewMode==='service'?'active':''}" onclick="S.viewMode='service';render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Serwisy</button><button class="${S.viewMode==='fuel'?'active':''}" onclick="S.viewMode='fuel';render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22h12M5 22V11a2 2 0 012-2h4a2 2 0 012 2v11M7 9V6a2 2 0 012-2h0a2 2 0 012 2v3"/></svg>Paliwo</button><button class="${S.viewMode==='insurance'?'active':''}" onclick="S.viewMode='insurance';render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Polisy</button><button class="${S.viewMode==='inspection'?'active':''}" onclick="S.viewMode='inspection';render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Przegląd</button><button class="${S.viewMode==='repairs'?'active':''}" onclick="S.viewMode='repairs';render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>Naprawy</button><button class="${S.viewMode==='notes'?'active':''}" onclick="S.viewMode='notes';render()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>Inne</button></div>`;
@@ -365,7 +384,7 @@ function saveLinkedEntries(){if(!S.linkedModal)return;const car=S.cars.find(c=>c
 function skipLinkedEntries(){S.linkedModal=null;saveState();render();toast('Dodano!');}
 function startEditEntry(itemId,entryId,date,km,notes){S.editEntry={itemId,entryId};S.draftEditEntry={date,km:km||'',notes:notes||''};S.addEntryFor=null;render();}
 function saveEditEntry(carId,itemId,entryId){const car=S.cars.find(c=>c.id===carId);const item=car?.items.find(i=>i.id===itemId);const entry=item?.history.find(h=>h.id===entryId);if(!entry)return;entry.date=S.draftEditEntry.date;entry.km=S.draftEditEntry.km!==''?parseInt(S.draftEditEntry.km):null;entry.notes=S.draftEditEntry.notes;S.editEntry=null;saveState();render();toast('OK!');}
-function deleteEntry(carId,itemId,entryId){const car=S.cars.find(c=>c.id===carId);const item=car?.items.find(i=>i.id===itemId);if(!item)return;item.history=item.history.filter(h=>h.id!==entryId);saveState();render();toast('Usunięto.');}
+function deleteEntry(carId,itemId,entryId){if(!confirm('Usunąć ten wpis z historii?'))return;const car=S.cars.find(c=>c.id===carId);const item=car?.items.find(i=>i.id===itemId);if(!item)return;item.history=item.history.filter(h=>h.id!==entryId);saveState();render();toast('Usunięto.');}
 function saveInterval(carId,itemId){const car=S.cars.find(c=>c.id===carId);const item=car?.items.find(i=>i.id===itemId);if(!item)return;item.kmInterval=S.draftInterval.km!==''?parseInt(S.draftInterval.km):null;item.monthInterval=S.draftInterval.mo!==''?parseInt(S.draftInterval.mo):null;S.editIntervalFor=null;saveState();render();toast('Zapisano!');}
 function addItem(carId){if(!S.draftAddItem.name.trim())return;const car=S.cars.find(c=>c.id===carId);if(!car)return;car.items.push({id:uid(),name:S.draftAddItem.name.trim(),kmInterval:S.draftAddItem.km?parseInt(S.draftAddItem.km):null,monthInterval:S.draftAddItem.mo?parseInt(S.draftAddItem.mo):null,history:[]});S.draftAddItem={name:'',km:'',mo:''};S.showAddItem=false;saveState();render();toast('Dodano!');}
 function deleteItem(carId,itemId){if(!confirm('Usunąć?'))return;const car=S.cars.find(c=>c.id===carId);if(car)car.items=car.items.filter(i=>i.id!==itemId);S.expandedItem=null;saveState();render();toast('Usunięto.');}
@@ -373,24 +392,24 @@ function deleteItem(carId,itemId){if(!confirm('Usunąć?'))return;const car=S.ca
 // FUEL
 function openAddFuel(){S.showAddFuel=true;const car=S.cars.find(c=>c.id===S.activeCar);S.draftFuel={date:today(),km:car?.currentKm||'',liters:'',totalCost:'',fuelType:'benzyna',gasolinePrice:''};render();}
 function addFuelup(carId){const car=S.cars.find(c=>c.id===carId);if(!car)return;if(!S.draftFuel.date||!S.draftFuel.km||!S.draftFuel.liters){toast('Wypełnij pola','err');return;}const fuelup={id:uid(),date:S.draftFuel.date,km:parseFloat(S.draftFuel.km)||0,liters:parseFloat(S.draftFuel.liters)||0,totalCost:parseFloat(S.draftFuel.totalCost)||0,fuelType:S.draftFuel.fuelType,gasolinePrice:S.draftFuel.fuelType==='lpg'?(parseFloat(S.draftFuel.gasolinePrice)||0):0};if(!car.fuelups)car.fuelups=[];car.fuelups.push(fuelup);if(fuelup.km>car.currentKm)car.currentKm=fuelup.km;S.showAddFuel=false;S.draftFuel={date:'',km:'',liters:'',totalCost:'',fuelType:'benzyna',gasolinePrice:''};saveState();render();toast('Tankowanie dodane!');}
-function deleteFuelup(carId,fuelId){const car=S.cars.find(c=>c.id===carId);if(!car||!car.fuelups)return;car.fuelups=car.fuelups.filter(f=>f.id!==fuelId);saveState();render();toast('Usunięto.');}
+function deleteFuelup(carId,fuelId){if(!confirm('Usunąć to tankowanie?'))return;const car=S.cars.find(c=>c.id===carId);if(!car||!car.fuelups)return;car.fuelups=car.fuelups.filter(f=>f.id!==fuelId);saveState();render();toast('Usunięto.');}
 
 // INSURANCE
 function openAddInsurance(){S.showAddInsurance=true;S.draftInsurance={policyNumber:'',insurer:'',dateFrom:today(),dateTo:'',claimPhone:'',coverage:[],otherCoverage:''};render();}
 function toggleCoverage(cov){const idx=S.draftInsurance.coverage.indexOf(cov);if(idx>=0)S.draftInsurance.coverage.splice(idx,1);else S.draftInsurance.coverage.push(cov);render();}
 function addInsurance(carId){const car=S.cars.find(c=>c.id===carId);if(!car)return;if(!S.draftInsurance.insurer){toast('Podaj ubezpieczyciela','err');return;}const ins={id:uid(),policyNumber:S.draftInsurance.policyNumber,insurer:S.draftInsurance.insurer,dateFrom:S.draftInsurance.dateFrom,dateTo:S.draftInsurance.dateTo,claimPhone:S.draftInsurance.claimPhone,coverage:[...S.draftInsurance.coverage],otherCoverage:S.draftInsurance.otherCoverage};if(!car.insurances)car.insurances=[];car.insurances.push(ins);S.showAddInsurance=false;S.draftInsurance={policyNumber:'',insurer:'',dateFrom:'',dateTo:'',claimPhone:'',coverage:[],otherCoverage:''};saveState();render();toast('Polisa dodana!');}
-function deleteInsurance(carId,insId){const car=S.cars.find(c=>c.id===carId);if(!car||!car.insurances)return;car.insurances=car.insurances.filter(i=>i.id!==insId);saveState();render();toast('Usunięto.');}
+function deleteInsurance(carId,insId){if(!confirm('Usunąć tę polisę?'))return;const car=S.cars.find(c=>c.id===carId);if(!car||!car.insurances)return;car.insurances=car.insurances.filter(i=>i.id!==insId);saveState();render();toast('Usunięto.');}
 
 // INSPECTION
 function openAddInspection(){S.showAddInspection=true;S.draftInspection={validUntil:'',scope:['Auto'],placeName:'',placeAddress:''};render();}
 function toggleInspectionScope(scope){const idx=S.draftInspection.scope.indexOf(scope);if(idx>=0)S.draftInspection.scope.splice(idx,1);else S.draftInspection.scope.push(scope);render();}
 function addInspection(carId){const car=S.cars.find(c=>c.id===carId);if(!car)return;if(!S.draftInspection.validUntil){toast('Podaj datę ważności','err');return;}const insp={id:uid(),validUntil:S.draftInspection.validUntil,scope:[...S.draftInspection.scope],placeName:S.draftInspection.placeName,placeAddress:S.draftInspection.placeAddress};if(!car.inspections)car.inspections=[];car.inspections.push(insp);S.showAddInspection=false;S.draftInspection={validUntil:'',scope:[],placeName:'',placeAddress:''};saveState();render();toast('Przegląd dodany!');}
-function deleteInspection(carId,inspId){const car=S.cars.find(c=>c.id===carId);if(!car||!car.inspections)return;car.inspections=car.inspections.filter(i=>i.id!==inspId);saveState();render();toast('Usunięto.');}
+function deleteInspection(carId,inspId){if(!confirm('Usunąć ten przegląd?'))return;const car=S.cars.find(c=>c.id===carId);if(!car||!car.inspections)return;car.inspections=car.inspections.filter(i=>i.id!==inspId);saveState();render();toast('Usunięto.');}
 
 // REPAIRS
 function openAddRepair(){S.showAddRepair=true;const car=S.cars.find(c=>c.id===S.activeCar);S.draftRepair={date:today(),km:car?.currentKm||'',description:'',workshop:'',workshopPhone:'',repairType:'planned',partsUsed:'',cost:''};render();}
 function addRepair(carId){const car=S.cars.find(c=>c.id===carId);if(!car)return;if(!S.draftRepair.date){toast('Podaj datę','err');return;}const repair={id:uid(),date:S.draftRepair.date,km:parseFloat(S.draftRepair.km)||0,description:S.draftRepair.description,workshop:S.draftRepair.workshop,workshopPhone:S.draftRepair.workshopPhone,repairType:S.draftRepair.repairType,partsUsed:S.draftRepair.partsUsed,cost:parseFloat(S.draftRepair.cost)||0};if(!car.repairs)car.repairs=[];car.repairs.push(repair);if(repair.km>car.currentKm)car.currentKm=repair.km;S.showAddRepair=false;S.draftRepair={date:'',km:'',description:'',workshop:'',workshopPhone:'',repairType:'planned',partsUsed:'',cost:''};saveState();render();toast('Naprawa dodana!');}
-function deleteRepair(carId,repairId){const car=S.cars.find(c=>c.id===carId);if(!car||!car.repairs)return;car.repairs=car.repairs.filter(r=>r.id!==repairId);saveState();render();toast('Usunięto.');}
+function deleteRepair(carId,repairId){if(!confirm('Usunąć tę naprawę?'))return;const car=S.cars.find(c=>c.id===carId);if(!car||!car.repairs)return;car.repairs=car.repairs.filter(r=>r.id!==repairId);saveState();render();toast('Usunięto.');}
 
 // NOTES (INNE)
 function openAddNote(){S.showAddNote=true;const car=S.cars.find(c=>c.id===S.activeCar);const notes=car?.notes||[];const nextNum=notes.length>0?Math.max(...notes.map(n=>parseInt(n.number)||0))+1:1;S.draftNote={number:String(nextNum),description:''};render();}
@@ -402,6 +421,8 @@ function deleteNote(carId,noteId){const car=S.cars.find(c=>c.id===carId);if(!car
 if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('./sw.js').then(reg=>{console.log('[PWA] SW OK');reg.onupdatefound=()=>{const newWorker=reg.installing;newWorker.onstatechange=()=>{if(newWorker.state==='installed'&&navigator.serviceWorker.controller)toast('Nowa wersja!');};};}).catch(err=>console.log('[PWA] SW error:',err));});}
 
 loadState();updateAppTitle();render();
+
+(async()=>{try{const handle=await idbGetHandle();if(handle){_saveHandle=handle;_saveFileName=handle.name;updateSaveFileDisplay();}}catch(e){}})();
 
 setTimeout(()=>{const car=S.cars.find(c=>c.id===S.activeCar);if(car){
 const insAlerts=getInsuranceAlerts(car);insAlerts.forEach(a=>{if(a.type==='expired')toast(`⚠️ Polisa ${a.ins.insurer} wygasła!`,'err');else if(a.type==='week')toast(`⏰ Polisa ${a.ins.insurer} wygasa za ${a.daysLeft} dni!`,'err');else if(a.type==='month')toast(`📋 Polisa ${a.ins.insurer} wygasa za ${a.daysLeft} dni`);});
