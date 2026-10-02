@@ -1,5 +1,5 @@
 // AutoSerwis PWA Service Worker
-const CACHE_NAME = 'autoserwis-v3';
+const CACHE_NAME = 'autoserwis-v4';
 // Dynamiczne wykrywanie base path (dla GitHub Pages i innych hostingów z podfolderem)
 const BASE_PATH = self.location.pathname.replace(/sw\.js$/, '');
 const urlsToCache = [
@@ -52,6 +52,22 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(event.request)
         .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(new Request(event.request, { cache: 'no-cache' }))
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, networkResponse.clone());
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request).then((response) => response || caches.match(BASE_PATH + 'index.html')))
     );
     return;
   }
