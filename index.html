@@ -190,8 +190,12 @@ textarea{background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:7
 .note-card{background:#0d0d14;border:1px solid #1a1a22;border-radius:10px;padding:14px;margin-bottom:8px;display:flex;gap:14px;align-items:flex-start}
 .note-num{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;color:#fb923c;min-width:36px;line-height:1;padding-top:2px}
 .note-body{flex:1;min-width:0}
-.note-desc{font-size:13px;color:#e5e7eb;line-height:1.6;white-space:pre-wrap;word-break:break-word}
-.note-edit-area{width:100%;background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:8px 10px;color:#e5e7eb;font-size:13px;line-height:1.6;min-height:80px;resize:vertical;font-family:inherit}
+.note-title{font-size:13px;font-weight:700;color:#fb923c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:5px}
+.note-desc{font-size:13px;color:#e5e7eb;line-height:1.6;white-space:pre-wrap;word-break:break-word;max-height:6.4em;overflow-y:auto;padding-right:5px}
+.notes-search{position:relative;margin:0 14px 10px}
+.notes-search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:#8b93a1;pointer-events:none}
+.notes-search input{width:100%;background:#0d0d14;border:1px solid #27272d;border-radius:7px;padding:9px 12px 9px 36px;color:#e5e7eb;font-size:13px}
+.note-edit-area{width:100%;background:#0a0a0e;border:1px solid #27272d;border-radius:6px;padding:8px 10px;color:#e5e7eb;font-size:13px;line-height:1.6;height:calc(6.4em + 18px);min-height:calc(6.4em + 18px);max-height:calc(6.4em + 18px);overflow-y:auto;resize:none;font-family:inherit}
 /* CHECKBOX */
 .chk-group{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .chk-item{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:6px;cursor:pointer;background:rgba(255,255,255,.03);border:1px solid #27272d;font-size:12px;transition:all .15s}
@@ -251,13 +255,13 @@ const LINKED_GROUPS=[{trigger:"Olej silnikowy",linked:["Filtr oleju","Filtr powi
 const _TPL=(()=>{let h=document.documentElement.outerHTML;h=h.replace(/window\.__PD__=\{[^<]*\}/,'window.__PD__=null');return h;})();
 
 let _lsKey='autoserwis_main';
-let S={cars:[],activeCar:null,appName:"AUTOSERWIS",viewMode:'service',expandedItem:null,addEntryFor:null,editIntervalFor:null,editEntry:null,showAddCar:false,showAddItem:false,editCarId:null,importData:null,linkedModal:null,showAddFuel:false,showAddInsurance:false,showAddRepair:false,showAddInspection:false,showAddNote:false,editNoteId:null,costFilterMode:'all',costDateFrom:'',costDateTo:'',costCategoryFilter:'all',costAmountMin:'',costAmountMax:'',
+let S={cars:[],activeCar:null,appName:"AUTOSERWIS",viewMode:'service',expandedItem:null,addEntryFor:null,editIntervalFor:null,editEntry:null,showAddCar:false,showAddItem:false,editCarId:null,importData:null,linkedModal:null,showAddFuel:false,showAddInsurance:false,showAddRepair:false,showAddInspection:false,showAddNote:false,editNoteId:null,notesSearch:'',costFilterMode:'all',costDateFrom:'',costDateTo:'',costCategoryFilter:'all',costAmountMin:'',costAmountMax:'',
 draftAddCar:{name:"",plate:"",vin:""},draftAddItem:{name:"",km:"",mo:""},draftAddEntry:{date:"",km:"",cost:"",notes:""},draftEditEntry:{date:"",km:"",cost:"",notes:""},draftInterval:{km:"",mo:""},
 draftFuel:{date:"",km:"",liters:"",totalCost:"",fuelType:"benzyna",gasolinePrice:""},
 draftInsurance:{policyNumber:"",insurer:"",dateFrom:"",dateTo:"",claimPhone:"",cost:"",coverage:[],otherCoverage:""},
 draftRepair:{date:"",km:"",description:"",workshop:"",workshopPhone:"",repairType:"planned",partsUsed:"",cost:""},
 draftInspection:{validUntil:"",scope:[],placeName:"",placeAddress:"",cost:""},
-draftNote:{number:"",description:""}};
+draftNote:{number:"",title:"",description:""}};
 
 const uid=()=>Math.random().toString(36).slice(2,9);
 const today=()=>new Date().toISOString().slice(0,10);
@@ -399,6 +403,15 @@ if(notes.length===0){html+=`<div style="text-align:center;padding:40px 0;color:#
 }else if(!S.showAddCar){html+=`<div class="empty"><div class="empty-icon">🚗</div><div class="empty-txt">Dodaj pierwsze auto</div></div>`;}
 html+='<div id="legend">';Object.entries(SC).forEach(([k,v])=>{html+=`<div class="leg-item"><div class="leg-dot" style="background:${v.dot}"></div>${v.label}</div>`;});html+='<div class="leg-item">· dane lokalne</div></div>';root.innerHTML=html;}
 
+function normalizeNoteSearch(value){return String(value||'').toLocaleLowerCase('pl').normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+function getNoteTitle(note){return String(note.title||'').trim()||String(note.description||'').split(/\r?\n/)[0].trim().slice(0,80)||`Wpis #${note.number||''}`;}
+function setNotesSearch(value){S.notesSearch=value;refreshNotesSearch(document.getElementById('root'));}
+function refreshNotesSearch(root){const list=root?.querySelector('#items-list');if(!list)return;const query=normalizeNoteSearch(S.notesSearch);let visible=0;list.querySelectorAll('.note-card').forEach(card=>{const matches=!query||(card.dataset.noteSearch||'').includes(query);card.style.display=matches?'':'none';if(matches)visible++;});const count=list.querySelector('.section-divider');if(count)count.textContent=query?`WPISY · ${visible}/${list.querySelectorAll('.note-card').length}`:`WPISY · ${list.querySelectorAll('.note-card').length}`;const empty=list.querySelector('.notes-search-empty');if(empty)empty.style.display=query&&visible===0?'block':'none';}
+function enhanceNotesView(root){if(S.viewMode!=='notes')return;const list=root.querySelector('#items-list');if(!list)return;const search=document.createElement('div');search.className='notes-search';search.innerHTML='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>';const input=document.createElement('input');input.type='search';input.placeholder='Szukaj we wpisach...';input.value=S.notesSearch;input.setAttribute('aria-label','Szukaj we wpisach');input.addEventListener('input',()=>setNotesSearch(input.value));search.appendChild(input);list.prepend(search);
+const formTitle=[...list.querySelectorAll('.panel-form-title')].find(el=>el.textContent.includes('NOWY WPIS'));if(formTitle){const field=document.createElement('div');field.className='fld';field.style.marginBottom='8px';const label=document.createElement('label');label.textContent='TYTUŁ';const titleInput=document.createElement('input');titleInput.type='text';titleInput.maxLength=120;titleInput.placeholder='Tytuł wpisu';titleInput.value=S.draftNote.title||'';titleInput.addEventListener('input',()=>S.draftNote.title=titleInput.value);field.append(label,titleInput);formTitle.after(field);}
+const notes=[...(S.cars.find(c=>c.id===S.activeCar)?.notes||[])].sort((a,b)=>(parseInt(a.number)||0)-(parseInt(b.number)||0));const cards=[...list.querySelectorAll('.note-card')];cards.forEach((card,index)=>{const note=notes[index];if(!note)return;const title=getNoteTitle(note);const description=String(note.description||'');card.dataset.noteSearch=normalizeNoteSearch(`${title} ${description} ${note.number||''}`);const editor=card.querySelector('.note-edit-area');if(editor){const field=document.createElement('div');field.className='fld';const label=document.createElement('label');label.textContent='TYTUŁ';const titleInput=document.createElement('input');titleInput.type='text';titleInput.maxLength=120;titleInput.value=note.title||'';titleInput.placeholder='Tytuł wpisu';titleInput.addEventListener('input',()=>updateNoteField(S.activeCar,note.id,'title',titleInput.value));field.append(label,titleInput);editor.before(field);}else{const body=card.querySelector('.note-body');const desc=card.querySelector('.note-desc');if(body&&desc){const titleEl=document.createElement('div');titleEl.className='note-title';titleEl.textContent=title;body.insertBefore(titleEl,desc);}}});const empty=document.createElement('div');empty.className='empty notes-search-empty';empty.style.display='none';empty.innerHTML='<div class="empty-txt" style="font-size:14px">Brak pasujących wpisów</div>';list.appendChild(empty);refreshNotesSearch(root);}
+const _renderBeforeNotesEnhancement=render;render=function(){_renderBeforeNotesEnhancement();if(S.viewMode==='notes')enhanceNotesView(document.getElementById('root'));};
+
 function fld(label,type,value,onchange,placeholder,width){return`<div class="fld"><label>${label}</label><input type="${type}" value="${esc(value??'')}" oninput="${onchange}" placeholder="${esc(placeholder)}" style="width:${width}px"></div>`;}
 
 function setActiveCar(id){S.activeCar=id;S.expandedItem=null;S.addEntryFor=null;S.editIntervalFor=null;S.editEntry=null;S.showAddItem=false;S.editCarId=null;S.showAddFuel=false;S.showAddInsurance=false;S.showAddRepair=false;S.showAddInspection=false;S.showAddNote=false;S.editNoteId=null;render();}
@@ -442,8 +455,8 @@ function addRepair(carId){const car=S.cars.find(c=>c.id===carId);if(!car)return;
 function deleteRepair(carId,repairId){if(!confirm('Usunąć tę naprawę?'))return;const car=S.cars.find(c=>c.id===carId);if(!car||!car.repairs)return;car.repairs=car.repairs.filter(r=>r.id!==repairId);saveState();render();toast('Usunięto.');}
 
 // NOTES (INNE)
-function openAddNote(){S.showAddNote=true;const car=S.cars.find(c=>c.id===S.activeCar);const notes=car?.notes||[];const nextNum=notes.length>0?Math.max(...notes.map(n=>parseInt(n.number)||0))+1:1;S.draftNote={number:String(nextNum),description:''};render();}
-function addNote(carId){const car=S.cars.find(c=>c.id===carId);if(!car)return;if(!S.draftNote.description.trim()){toast('Wpisz opis','err');return;}const note={id:uid(),number:parseInt(S.draftNote.number)||1,description:S.draftNote.description.trim()};if(!car.notes)car.notes=[];car.notes.push(note);S.showAddNote=false;S.draftNote={number:'',description:''};saveState();render();toast('Wpis dodany!');}
+function openAddNote(){S.showAddNote=true;const car=S.cars.find(c=>c.id===S.activeCar);const notes=car?.notes||[];const nextNum=notes.length>0?Math.max(...notes.map(n=>parseInt(n.number)||0))+1:1;S.draftNote={number:String(nextNum),title:'',description:''};render();}
+function addNote(carId){const car=S.cars.find(c=>c.id===carId);if(!car)return;if(!S.draftNote.title.trim()||!S.draftNote.description.trim()){toast('Wpisz tytuł i opis','err');return;}const note={id:uid(),number:parseInt(S.draftNote.number)||1,title:S.draftNote.title.trim(),description:S.draftNote.description.trim()};if(!car.notes)car.notes=[];car.notes.push(note);S.showAddNote=false;S.draftNote={number:'',title:'',description:''};saveState();render();toast('Wpis dodany!');}
 function updateNoteField(carId,noteId,field,value){const car=S.cars.find(c=>c.id===carId);if(!car||!car.notes)return;const note=car.notes.find(n=>n.id===noteId);if(!note)return;note[field]=field==='number'?parseInt(value)||1:value;}
 function deleteNote(carId,noteId){const car=S.cars.find(c=>c.id===carId);if(!car||!car.notes)return;if(!confirm('Usunąć wpis?'))return;car.notes=car.notes.filter(n=>n.id!==noteId);saveState();render();toast('Usunięto.');}
 
