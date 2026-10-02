@@ -1,5 +1,5 @@
 // AutoSerwis PWA Service Worker
-const CACHE_NAME = 'autoserwis-v2';
+const CACHE_NAME = 'autoserwis-v3';
 // Dynamiczne wykrywanie base path (dla GitHub Pages i innych hostingów z podfolderem)
 const BASE_PATH = self.location.pathname.replace(/sw\.js$/, '');
 const urlsToCache = [
